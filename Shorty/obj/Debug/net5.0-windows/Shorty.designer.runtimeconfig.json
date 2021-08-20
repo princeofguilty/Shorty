@@ -1,13 +1,13 @@
 {
   "runtimeOptions": {
-    "tfm": "netcoreapp3.1",
+    "tfm": "net5.0",
     "framework": {
       "name": "Microsoft.WindowsDesktop.App",
-      "version": "3.1.0"
+      "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Princ\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Princ\\.nuget\\packages"
+      "C:\\Users\\Servo-Laboratory\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Servo-Laboratory\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

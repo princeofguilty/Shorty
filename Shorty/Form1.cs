@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Shorty
 {
-    public partial class Form1 : Form
+    public partial class Shorty : Form
     {
-        public Form1()
+        public Shorty()
         {
             InitializeComponent();
         }

@@ -1,38 +1,38 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    "net5.0-windows7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Princ\\.nuget\\packages\\": {}
+    "C:\\Users\\Servo-Laboratory\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Princ\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
+      "projectUniqueName": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
       "projectName": "Shorty",
-      "projectPath": "C:\\Users\\Princ\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
-      "packagesPath": "C:\\Users\\Princ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Princ\\source\\repos\\Shorty\\Shorty\\obj\\",
+      "projectPath": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
+      "packagesPath": "C:\\Users\\Servo-Laboratory\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Princ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Servo-Laboratory\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "projectReferences": {}
         }
       },
@@ -43,8 +43,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "imports": [
           "net461",
           "net462",
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
