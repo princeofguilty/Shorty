@@ -16,5 +16,23 @@ namespace Shorty
         {
             InitializeComponent();
         }
+
+        private Image _icon;
+        private string _appName;
+
+        [Category("Custom props")]
+        public Image icon
+        {
+            get { return _icon; }
+            set { _icon = value; itemIcon.Image = value; }
+        }
+
+        [Category("Custom props")]
+        public string appName
+        {
+            get { return _appName; }
+            set { _appName = value; itemLabel.Text = value; }
+        }
+
     }
 }

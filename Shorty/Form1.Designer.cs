@@ -36,7 +36,7 @@ namespace Shorty
             this.addBtn = new System.Windows.Forms.Button();
             this.inputTxt = new System.Windows.Forms.TextBox();
             this.logo = new System.Windows.Forms.Panel();
-            this.multiPnl = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mainbar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,6 +119,7 @@ namespace Shorty
             this.inputTxt.PlaceholderText = "What are you looking for ? :)";
             this.inputTxt.Size = new System.Drawing.Size(252, 22);
             this.inputTxt.TabIndex = 0;
+            this.inputTxt.TextChanged += new System.EventHandler(this.inputTxt_TextChanged);
             // 
             // logo
             // 
@@ -131,13 +132,14 @@ namespace Shorty
             this.logo.Size = new System.Drawing.Size(60, 55);
             this.logo.TabIndex = 0;
             // 
-            // multiPnl
+            // flowLayoutPanel1
             // 
-            this.multiPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.multiPnl.Location = new System.Drawing.Point(0, 55);
-            this.multiPnl.Name = "multiPnl";
-            this.multiPnl.Size = new System.Drawing.Size(450, 218);
-            this.multiPnl.TabIndex = 1;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(450, 218);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // Shorty
             // 
@@ -145,7 +147,7 @@ namespace Shorty
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(450, 273);
-            this.Controls.Add(this.multiPnl);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.mainbar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Shorty";
@@ -163,10 +165,10 @@ namespace Shorty
         private System.Windows.Forms.Panel mainbar;
         private System.Windows.Forms.TextBox inputTxt;
         private System.Windows.Forms.Panel logo;
-        private System.Windows.Forms.Panel multiPnl;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button minmizeBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

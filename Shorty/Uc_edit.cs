@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Shorty
 {
-    public partial class UC_AppsList : UserControl
+    public partial class UC_edit : UserControl
     {
-        public UC_AppsList()
+        public UC_edit()
         {
             InitializeComponent();
         }

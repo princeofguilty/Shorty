@@ -7,7 +7,7 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UC_AppsList.cs">
+    <Compile Update="Uc_edit.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

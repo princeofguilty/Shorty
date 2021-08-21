@@ -5,7 +5,6 @@ C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\Sh
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\Shorty.dll
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\ref\Shorty.dll
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\Shorty.pdb
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.csprojAssemblyReference.cache
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.Shorty.resources
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.Properties.Resources.resources
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.csproj.GenerateResource.cache
@@ -18,4 +17,4 @@ C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\re
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.pdb
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.genruntimeconfig.cache
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.appitem.resources
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.UC_AppsList.resources
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.UC_edit.resources

@@ -49,8 +49,9 @@ namespace Shorty
             this.panelitem.Controls.Add(this.itemIcon);
             this.panelitem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelitem.Location = new System.Drawing.Point(0, 0);
+            this.panelitem.Margin = new System.Windows.Forms.Padding(0);
             this.panelitem.Name = "panelitem";
-            this.panelitem.Size = new System.Drawing.Size(450, 55);
+            this.panelitem.Size = new System.Drawing.Size(430, 55);
             this.panelitem.TabIndex = 0;
             // 
             // remBtn
@@ -86,9 +87,10 @@ namespace Shorty
             // itemLabel
             // 
             this.itemLabel.AutoSize = true;
-            this.itemLabel.Location = new System.Drawing.Point(66, 20);
+            this.itemLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.itemLabel.Location = new System.Drawing.Point(66, 18);
             this.itemLabel.Name = "itemLabel";
-            this.itemLabel.Size = new System.Drawing.Size(0, 15);
+            this.itemLabel.Size = new System.Drawing.Size(0, 21);
             this.itemLabel.TabIndex = 1;
             // 
             // itemIcon
@@ -106,8 +108,9 @@ namespace Shorty
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panelitem);
+            this.Margin = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.Name = "appitem";
-            this.Size = new System.Drawing.Size(450, 55);
+            this.Size = new System.Drawing.Size(430, 55);
             this.panelitem.ResumeLayout(false);
             this.panelitem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemIcon)).EndInit();
