@@ -29,28 +29,30 @@ namespace Shorty
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shorty));
             this.mainbar = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.cancle_Adding = new System.Windows.Forms.Button();
+            this.additionBtn = new System.Windows.Forms.Button();
             this.minmizeBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
             this.inputTxt = new System.Windows.Forms.TextBox();
             this.logo = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this._flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.mainbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainbar
             // 
-            this.mainbar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainbar.BackgroundImage")));
+            this.mainbar.BackgroundImage = global::Shorty.Properties.Resources.formbg;
             this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mainbar.Controls.Add(this.closeBtn);
+            this.mainbar.Controls.Add(this.cancle_Adding);
+            this.mainbar.Controls.Add(this.additionBtn);
             this.mainbar.Controls.Add(this.minmizeBtn);
-            this.mainbar.Controls.Add(this.addBtn);
             this.mainbar.Controls.Add(this.inputTxt);
             this.mainbar.Controls.Add(this.logo);
             this.mainbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainbar.Location = new System.Drawing.Point(0, 0);
+            this.mainbar.Margin = new System.Windows.Forms.Padding(0);
             this.mainbar.Name = "mainbar";
             this.mainbar.Size = new System.Drawing.Size(450, 55);
             this.mainbar.TabIndex = 0;
@@ -59,11 +61,12 @@ namespace Shorty
             // 
             this.closeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.closeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.closeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("closeBtn.BackgroundImage")));
+            this.closeBtn.BackgroundImage = global::Shorty.Properties.Resources.exitbtn;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.closeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.closeBtn.FlatAppearance.BorderSize = 0;
             this.closeBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.closeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.closeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.closeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.ImageKey = "(none)";
@@ -72,16 +75,59 @@ namespace Shorty
             this.closeBtn.Size = new System.Drawing.Size(27, 23);
             this.closeBtn.TabIndex = 1;
             this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.close_Btn_Click);
+            // 
+            // cancle_Adding
+            // 
+            this.cancle_Adding.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancle_Adding.BackColor = System.Drawing.Color.Transparent;
+            this.cancle_Adding.BackgroundImage = global::Shorty.Properties.Resources.addpressed;
+            this.cancle_Adding.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.cancle_Adding.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.cancle_Adding.FlatAppearance.BorderSize = 0;
+            this.cancle_Adding.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.cancle_Adding.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cancle_Adding.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cancle_Adding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancle_Adding.ImageKey = "(none)";
+            this.cancle_Adding.Location = new System.Drawing.Point(345, 16);
+            this.cancle_Adding.Name = "cancle_Adding";
+            this.cancle_Adding.Size = new System.Drawing.Size(27, 23);
+            this.cancle_Adding.TabIndex = 1;
+            this.cancle_Adding.UseVisualStyleBackColor = false;
+            this.cancle_Adding.Visible = false;
+            this.cancle_Adding.Click += new System.EventHandler(this.cancle_Adding_Click);
+            // 
+            // additionBtn
+            // 
+            this.additionBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.additionBtn.BackColor = System.Drawing.Color.Transparent;
+            this.additionBtn.BackgroundImage = global::Shorty.Properties.Resources.addbtn;
+            this.additionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.additionBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.additionBtn.FlatAppearance.BorderSize = 0;
+            this.additionBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.additionBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.additionBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.additionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.additionBtn.ImageKey = "(none)";
+            this.additionBtn.Location = new System.Drawing.Point(345, 16);
+            this.additionBtn.Name = "additionBtn";
+            this.additionBtn.Size = new System.Drawing.Size(27, 23);
+            this.additionBtn.TabIndex = 1;
+            this.additionBtn.UseVisualStyleBackColor = false;
+            this.additionBtn.Click += new System.EventHandler(this.additionBtn_Click);
             // 
             // minmizeBtn
             // 
             this.minmizeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minmizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minmizeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("minmizeBtn.BackgroundImage")));
+            this.minmizeBtn.BackgroundImage = global::Shorty.Properties.Resources.minimizebtn;
             this.minmizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minmizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.minmizeBtn.FlatAppearance.BorderSize = 0;
             this.minmizeBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.minmizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.minmizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.minmizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.minmizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minmizeBtn.ImageKey = "(none)";
@@ -90,24 +136,7 @@ namespace Shorty
             this.minmizeBtn.Size = new System.Drawing.Size(27, 23);
             this.minmizeBtn.TabIndex = 1;
             this.minmizeBtn.UseVisualStyleBackColor = false;
-            // 
-            // addBtn
-            // 
-            this.addBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addBtn.BackgroundImage")));
-            this.addBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addBtn.FlatAppearance.BorderSize = 0;
-            this.addBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBtn.ImageKey = "(none)";
-            this.addBtn.Location = new System.Drawing.Point(345, 16);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(27, 23);
-            this.addBtn.TabIndex = 1;
-            this.addBtn.UseVisualStyleBackColor = false;
+            this.minmizeBtn.Click += new System.EventHandler(this.minmizeBtn_Click);
             // 
             // inputTxt
             // 
@@ -116,7 +145,7 @@ namespace Shorty
             this.inputTxt.Location = new System.Drawing.Point(75, 17);
             this.inputTxt.MaxLength = 25;
             this.inputTxt.Name = "inputTxt";
-            this.inputTxt.PlaceholderText = "What are you looking for ? :)";
+            this.inputTxt.PlaceholderText = "What are you looking for ?";
             this.inputTxt.Size = new System.Drawing.Size(252, 22);
             this.inputTxt.TabIndex = 0;
             this.inputTxt.TextChanged += new System.EventHandler(this.inputTxt_TextChanged);
@@ -124,7 +153,7 @@ namespace Shorty
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
-            this.logo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logo.BackgroundImage")));
+            this.logo.BackgroundImage = global::Shorty.Properties.Resources.Group_1;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.logo.Location = new System.Drawing.Point(0, 0);
@@ -132,14 +161,14 @@ namespace Shorty
             this.logo.Size = new System.Drawing.Size(60, 55);
             this.logo.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // _flowLayoutPanel
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(450, 218);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this._flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._flowLayoutPanel.Location = new System.Drawing.Point(0, 55);
+            this._flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this._flowLayoutPanel.Name = "_flowLayoutPanel";
+            this._flowLayoutPanel.Size = new System.Drawing.Size(450, 218);
+            this._flowLayoutPanel.TabIndex = 0;
             // 
             // Shorty
             // 
@@ -147,13 +176,13 @@ namespace Shorty
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(450, 273);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this._flowLayoutPanel);
             this.Controls.Add(this.mainbar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Shorty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "shorty";
             this.TransparencyKey = System.Drawing.Color.Gray;
+            this.Load += new System.EventHandler(this.Shorty_Load);
             this.mainbar.ResumeLayout(false);
             this.mainbar.PerformLayout();
             this.ResumeLayout(false);
@@ -167,8 +196,9 @@ namespace Shorty
         private System.Windows.Forms.Panel logo;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button minmizeBtn;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button additionBtn;
+        private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
+        private System.Windows.Forms.Button cancle_Adding;
     }
 }
 

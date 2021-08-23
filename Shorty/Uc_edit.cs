@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Shorty
 {
-    public partial class UC_edit : UserControl
+    public partial class uc_Edit : UserControl
     {
-        public UC_edit()
+        public uc_Edit()
         {
             InitializeComponent();
+        }
+
+        private void close_Btn_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

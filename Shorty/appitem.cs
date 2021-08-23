@@ -33,6 +33,5 @@ namespace Shorty
             get { return _appName; }
             set { _appName = value; itemLabel.Text = value; }
         }
-
     }
 }
