@@ -29,7 +29,11 @@ namespace Shorty
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shorty));
             this.mainbar = new System.Windows.Forms.Panel();
+            this.dragdrop_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
             this.cancle_Adding = new System.Windows.Forms.Button();
             this.additionBtn = new System.Windows.Forms.Button();
@@ -37,13 +41,17 @@ namespace Shorty
             this.inputTxt = new System.Windows.Forms.TextBox();
             this.logo = new System.Windows.Forms.Panel();
             this._flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.mainbar.SuspendLayout();
+            this.dragdrop_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainbar
             // 
+            this.mainbar.AllowDrop = true;
             this.mainbar.BackgroundImage = global::Shorty.Properties.Resources.formbg;
             this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.mainbar.Controls.Add(this.dragdrop_panel);
             this.mainbar.Controls.Add(this.closeBtn);
             this.mainbar.Controls.Add(this.cancle_Adding);
             this.mainbar.Controls.Add(this.additionBtn);
@@ -56,6 +64,29 @@ namespace Shorty
             this.mainbar.Name = "mainbar";
             this.mainbar.Size = new System.Drawing.Size(450, 55);
             this.mainbar.TabIndex = 0;
+            // 
+            // dragdrop_panel
+            // 
+            this.dragdrop_panel.AllowDrop = true;
+            this.dragdrop_panel.BackColor = System.Drawing.Color.Transparent;
+            this.dragdrop_panel.Controls.Add(this.label1);
+            this.dragdrop_panel.Location = new System.Drawing.Point(67, 7);
+            this.dragdrop_panel.Name = "dragdrop_panel";
+            this.dragdrop_panel.Size = new System.Drawing.Size(261, 41);
+            this.dragdrop_panel.TabIndex = 2;
+            this.dragdrop_panel.Visible = false;
+            this.dragdrop_panel.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragdrop_panel_DragDrop);
+            this.dragdrop_panel.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragdrop_panel_DragEnter);
+            this.dragdrop_panel.DragLeave += new System.EventHandler(this.dragdrop_panel_DragLeave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Drag and Drop here.....";
             // 
             // closeBtn
             // 
@@ -141,6 +172,7 @@ namespace Shorty
             // inputTxt
             // 
             this.inputTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.inputTxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.inputTxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.inputTxt.Location = new System.Drawing.Point(75, 17);
             this.inputTxt.MaxLength = 25;
@@ -169,6 +201,14 @@ namespace Shorty
             this._flowLayoutPanel.Name = "_flowLayoutPanel";
             this._flowLayoutPanel.Size = new System.Drawing.Size(450, 218);
             this._flowLayoutPanel.TabIndex = 0;
+            this._flowLayoutPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this._flowLayoutPanel_ControlRemoved);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
             // Shorty
             // 
@@ -183,8 +223,12 @@ namespace Shorty
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.Gray;
             this.Load += new System.EventHandler(this.Shorty_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Shorty_KeyDown);
+            this.Resize += new System.EventHandler(this.Shorty_Resize);
             this.mainbar.ResumeLayout(false);
             this.mainbar.PerformLayout();
+            this.dragdrop_panel.ResumeLayout(false);
+            this.dragdrop_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -199,6 +243,9 @@ namespace Shorty
         private System.Windows.Forms.Button additionBtn;
         private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
         private System.Windows.Forms.Button cancle_Adding;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Panel dragdrop_panel;
+        private System.Windows.Forms.Label label1;
     }
 }
 

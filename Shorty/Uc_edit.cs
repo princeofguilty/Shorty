@@ -17,9 +17,36 @@ namespace Shorty
             InitializeComponent();
         }
 
-        private void close_Btn_Click(object sender, EventArgs e)
+        private string _nameBox;
+        private string _lockBox;
+        private Image _iconPanel;
+
+        
+
+        [Category("Custom props")]
+        public string appName
         {
-          
+            get { return _nameBox; }
+            set { _nameBox = value; nameBox.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public string appLoaction
+        {
+            get { return _lockBox; }
+            set { _lockBox = value; locBox.Text = value; }
+        }
+
+        [Category("Custom props")]
+        public Image appIcon
+        {
+            get { return _iconPanel; }
+            set { _iconPanel = value; iconBox.Image = value; }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Clear();
         }
     }
 }

@@ -67,42 +67,69 @@ namespace Shorty
             // 
             // addBtn
             // 
-            this.addBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.addBtn.FlatAppearance.BorderSize = 0;
-            this.addBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Location = new System.Drawing.Point(188, 177);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
-            this.addBtn.TabIndex = 4;
+            this.addBtn.TabIndex = 1;
             this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(192, 128);
+            this.comboBox3.Items.AddRange(new object[] {
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z"});
+            this.comboBox3.Location = new System.Drawing.Point(224, 128);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(34, 23);
+            this.comboBox3.Size = new System.Drawing.Size(52, 23);
             this.comboBox3.TabIndex = 3;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(152, 128);
+            this.comboBox2.Items.AddRange(new object[] {
+            "ALT",
+            "SHIFT"});
+            this.comboBox2.Location = new System.Drawing.Point(166, 128);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(34, 23);
+            this.comboBox2.Size = new System.Drawing.Size(52, 23);
             this.comboBox2.TabIndex = 3;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 128);
+            this.comboBox1.Items.AddRange(new object[] {
+            "CTRL"});
+            this.comboBox1.Location = new System.Drawing.Point(108, 128);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(34, 23);
+            this.comboBox1.Size = new System.Drawing.Size(52, 23);
             this.comboBox1.TabIndex = 3;
             // 
             // iconBox
@@ -189,9 +216,9 @@ namespace Shorty
         private System.Windows.Forms.Label loc_Label;
         private System.Windows.Forms.Label name_Label;
         private System.Windows.Forms.Label scut_Label;
-        private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button addBtn;
     }
 }
