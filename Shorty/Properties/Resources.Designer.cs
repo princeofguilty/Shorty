@@ -103,6 +103,16 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fico {
+            get {
+                object obj = ResourceManager.GetObject("fico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap formbg {
             get {
                 object obj = ResourceManager.GetObject("formbg", resourceCulture);
@@ -136,6 +146,16 @@ namespace Shorty.Properties {
         internal static System.Drawing.Bitmap objectpanel530x50 {
             get {
                 object obj = ResourceManager.GetObject("objectpanel530x50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap openbtn {
+            get {
+                object obj = ResourceManager.GetObject("openbtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

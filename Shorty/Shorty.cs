@@ -16,10 +16,8 @@ namespace Shorty
     public partial class Shorty : Form
     {
         
-        uc_Edit ucedit = new uc_Edit();
         CancellationTokenSource _tokensource = null;
-
-        appitem[] appitems = new appitem[4];
+        public static uc_Edit ucedit = new uc_Edit();
 
         public Shorty()
         {
@@ -34,37 +32,48 @@ namespace Shorty
             additionBtn.Focus();
             this.KeyPreview = true;
 
+            if (!File.Exists(@"C:\Temp\appslog.txt"))
+            {
+                using (StreamWriter sw = File.CreateText(@"C:\Temp\appslog.txt"))
+                {
+
+                }
+            }
         }
 
         //implement user control in form1 in _flowlayoutpanel control
         private void viewApps() 
         {
-            appitems[0] = new appitem();
-            appitems[1] = new appitem();
-            appitems[2] = new appitem();
-            appitems[3] = new appitem();
-            appitems[0].appName = "the";
-            appitems[1].appName = "theword";
-            appitems[2].appName = "thewordstarts";
-            appitems[3].appName = "thewordstartswith";
-
             _flowLayoutPanel.Controls.Clear();
 
-            for (int i = 0; i < appitems.Length; i++)
-            {  
-                if (inputTxt.Text.Length <= appitems[i].appName.Length)
+            foreach (var line in File.ReadAllLines(@"C:\Temp\appslog.txt"))
+            {
+                appitem _item = new appitem();
+                string[] info = line.Split(", ");
+                //_item.appNumber = Int32.Parse(info[0]);
+                _item.appName = info[1];
+                _item.applocation = info[2];
+
+                try
                 {
-                   if(appitems[i].appName.StartsWith(inputTxt.Text))
-                        _flowLayoutPanel.Controls.Add(appitems[i]);
+                    Icon appico = Icon.ExtractAssociatedIcon(info[2]);
+                    _item.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
                 }
-            }
+                catch (Exception)
+                {
+                    _item.appIcon = Properties.Resources.fico;
+                }
+
+                _flowLayoutPanel.Controls.Add(_item);
+            }            
             _flowLayoutPanel.Visible = true;
+
             if(inputTxt.Text == "")
                _flowLayoutPanel.Controls.Clear();
         }
 
         //detecting input change and usercontrol updates
-        //controlling refresh rate throw canceling operations.
+        //controlling refresh rate throw canceling operations and Delaying.
 
         private void inputTxt_TextChanged(object sender, EventArgs e)
         {
@@ -94,7 +103,6 @@ namespace Shorty
         private void additionBtn_Click(object sender, EventArgs e)
         {
             additionBtn.Visible = false;
-            cancle_Adding.Visible = true;
             
             inputTxt.Visible = false;
             dragdrop_panel.Visible = true;
@@ -111,19 +119,6 @@ namespace Shorty
         private void close_Btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void cancle_Adding_Click(object sender, EventArgs e)
-        {
-            additionBtn.Visible = true;
-            cancle_Adding.Visible = false;
-
-            inputTxt.Visible = true;
-            dragdrop_panel.Visible = false;
-
-            _flowLayoutPanel.Controls.Clear();
-
-            inputTxt.PlaceholderText = "What are you looking for ?";
         }
 
         //###### MINIMIZATION THROUGH AND TRY ICON ########\\
@@ -178,6 +173,17 @@ namespace Shorty
             
             ucedit.appName = Path.GetFileName(file[0]);
             ucedit.appLoaction = file[0];
+            try
+            {
+                Icon appico = Icon.ExtractAssociatedIcon(file[0]);
+                ucedit.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32,32)).Handle);
+            }
+            catch (Exception)
+            {
+                ucedit.appIcon = Properties.Resources.fico;
+            }
+            
+
         }
 
         private void dragdrop_panel_DragLeave(object sender, EventArgs e)
@@ -188,7 +194,6 @@ namespace Shorty
         private void _flowLayoutPanel_ControlRemoved(object sender, ControlEventArgs e)
         {
             additionBtn.Visible = true;
-            cancle_Adding.Visible = false;
 
             inputTxt.Visible = true;
             dragdrop_panel.Visible = false;

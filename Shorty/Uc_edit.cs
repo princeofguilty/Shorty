@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Shorty
 {
@@ -20,7 +21,6 @@ namespace Shorty
         private string _nameBox;
         private string _lockBox;
         private Image _iconPanel;
-
         
 
         [Category("Custom props")]
@@ -46,6 +46,23 @@ namespace Shorty
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            string fileName = @"C:\Temp\appslog.txt";
+
+            if (File.Exists(fileName))
+            {
+                    string[] lines = File.ReadAllLines(fileName);
+                    string full = (lines.Length+1) + ", "+appName+", "+appLoaction;
+                    File.AppendAllText(fileName, full + Environment.NewLine);
+            }
+
+            appName = "";
+            appLoaction = "";
+            this.Parent.Controls.Clear();
+        }
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            appName = "";
+            appLoaction = "";
             this.Parent.Controls.Clear();
         }
     }

@@ -35,7 +35,6 @@ namespace Shorty
             this.dragdrop_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.cancle_Adding = new System.Windows.Forms.Button();
             this.additionBtn = new System.Windows.Forms.Button();
             this.minmizeBtn = new System.Windows.Forms.Button();
             this.inputTxt = new System.Windows.Forms.TextBox();
@@ -53,7 +52,6 @@ namespace Shorty
             this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mainbar.Controls.Add(this.dragdrop_panel);
             this.mainbar.Controls.Add(this.closeBtn);
-            this.mainbar.Controls.Add(this.cancle_Adding);
             this.mainbar.Controls.Add(this.additionBtn);
             this.mainbar.Controls.Add(this.minmizeBtn);
             this.mainbar.Controls.Add(this.inputTxt);
@@ -107,27 +105,6 @@ namespace Shorty
             this.closeBtn.TabIndex = 1;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.close_Btn_Click);
-            // 
-            // cancle_Adding
-            // 
-            this.cancle_Adding.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cancle_Adding.BackColor = System.Drawing.Color.Transparent;
-            this.cancle_Adding.BackgroundImage = global::Shorty.Properties.Resources.addpressed;
-            this.cancle_Adding.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.cancle_Adding.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.cancle_Adding.FlatAppearance.BorderSize = 0;
-            this.cancle_Adding.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.cancle_Adding.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cancle_Adding.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cancle_Adding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancle_Adding.ImageKey = "(none)";
-            this.cancle_Adding.Location = new System.Drawing.Point(345, 16);
-            this.cancle_Adding.Name = "cancle_Adding";
-            this.cancle_Adding.Size = new System.Drawing.Size(27, 23);
-            this.cancle_Adding.TabIndex = 1;
-            this.cancle_Adding.UseVisualStyleBackColor = false;
-            this.cancle_Adding.Visible = false;
-            this.cancle_Adding.Click += new System.EventHandler(this.cancle_Adding_Click);
             // 
             // additionBtn
             // 
@@ -242,7 +219,6 @@ namespace Shorty
         private System.Windows.Forms.Button minmizeBtn;
         private System.Windows.Forms.Button additionBtn;
         private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
-        private System.Windows.Forms.Button cancle_Adding;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Panel dragdrop_panel;
         private System.Windows.Forms.Label label1;

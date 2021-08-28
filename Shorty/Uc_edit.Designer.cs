@@ -30,6 +30,7 @@ namespace Shorty
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -48,6 +49,7 @@ namespace Shorty
             // 
             this.panel1.BackgroundImage = global::Shorty.Properties.Resources.downpanel;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.cancelBtn);
             this.panel1.Controls.Add(this.addBtn);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.comboBox2);
@@ -65,10 +67,29 @@ namespace Shorty
             this.panel1.Size = new System.Drawing.Size(450, 218);
             this.panel1.TabIndex = 0;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.cancelBtn.FlatAppearance.BorderSize = 0;
+            this.cancelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.Location = new System.Drawing.Point(239, 177);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 1;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // addBtn
             // 
+            this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.addBtn.FlatAppearance.BorderSize = 0;
+            this.addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBtn.Location = new System.Drawing.Point(188, 177);
+            this.addBtn.Location = new System.Drawing.Point(137, 177);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 1;
@@ -134,7 +155,7 @@ namespace Shorty
             // 
             // iconBox
             // 
-            this.iconBox.BackColor = System.Drawing.Color.Transparent;
+            this.iconBox.BackColor = System.Drawing.Color.White;
             this.iconBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconBox.Location = new System.Drawing.Point(342, 26);
             this.iconBox.Margin = new System.Windows.Forms.Padding(0);
@@ -210,7 +231,6 @@ namespace Shorty
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox iconBox;
         private System.Windows.Forms.TextBox locBox;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label loc_Label;
@@ -220,5 +240,7 @@ namespace Shorty
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.PictureBox iconBox;
     }
 }
