@@ -30,11 +30,11 @@ namespace Shorty
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ctrl_label = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.keyCbox = new System.Windows.Forms.ComboBox();
+            this.controlCobox = new System.Windows.Forms.ComboBox();
             this.iconBox = new System.Windows.Forms.PictureBox();
             this.locBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -49,11 +49,11 @@ namespace Shorty
             // 
             this.panel1.BackgroundImage = global::Shorty.Properties.Resources.downpanel;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.ctrl_label);
             this.panel1.Controls.Add(this.cancelBtn);
             this.panel1.Controls.Add(this.addBtn);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.keyCbox);
+            this.panel1.Controls.Add(this.controlCobox);
             this.panel1.Controls.Add(this.iconBox);
             this.panel1.Controls.Add(this.locBox);
             this.panel1.Controls.Add(this.nameBox);
@@ -66,6 +66,17 @@ namespace Shorty
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 218);
             this.panel1.TabIndex = 0;
+            // 
+            // ctrl_label
+            // 
+            this.ctrl_label.AutoSize = true;
+            this.ctrl_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctrl_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ctrl_label.Location = new System.Drawing.Point(112, 131);
+            this.ctrl_label.Name = "ctrl_label";
+            this.ctrl_label.Size = new System.Drawing.Size(37, 17);
+            this.ctrl_label.TabIndex = 4;
+            this.ctrl_label.Text = "CTRL";
             // 
             // cancelBtn
             // 
@@ -97,10 +108,10 @@ namespace Shorty
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // comboBox3
+            // keyCbox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.keyCbox.FormattingEnabled = true;
+            this.keyCbox.Items.AddRange(new object[] {
             "a",
             "b",
             "c",
@@ -127,31 +138,21 @@ namespace Shorty
             "x",
             "y",
             "z"});
-            this.comboBox3.Location = new System.Drawing.Point(224, 128);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(52, 23);
-            this.comboBox3.TabIndex = 3;
+            this.keyCbox.Location = new System.Drawing.Point(213, 128);
+            this.keyCbox.Name = "keyCbox";
+            this.keyCbox.Size = new System.Drawing.Size(52, 23);
+            this.keyCbox.TabIndex = 3;
             // 
-            // comboBox2
+            // controlCobox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.controlCobox.FormattingEnabled = true;
+            this.controlCobox.Items.AddRange(new object[] {
             "ALT",
             "SHIFT"});
-            this.comboBox2.Location = new System.Drawing.Point(166, 128);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(52, 23);
-            this.comboBox2.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "CTRL"});
-            this.comboBox1.Location = new System.Drawing.Point(108, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(52, 23);
-            this.comboBox1.TabIndex = 3;
+            this.controlCobox.Location = new System.Drawing.Point(155, 128);
+            this.controlCobox.Name = "controlCobox";
+            this.controlCobox.Size = new System.Drawing.Size(52, 23);
+            this.controlCobox.TabIndex = 3;
             // 
             // iconBox
             // 
@@ -236,11 +237,11 @@ namespace Shorty
         private System.Windows.Forms.Label loc_Label;
         private System.Windows.Forms.Label name_Label;
         private System.Windows.Forms.Label scut_Label;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox keyCbox;
+        private System.Windows.Forms.ComboBox controlCobox;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.PictureBox iconBox;
+        private System.Windows.Forms.Label ctrl_label;
     }
 }

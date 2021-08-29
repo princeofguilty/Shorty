@@ -21,7 +21,19 @@ namespace Shorty
         private string _nameBox;
         private string _lockBox;
         private Image _iconPanel;
-        
+        private string _appctrlKey;
+        private string _appcodeKey;
+
+        public string appctrlKey
+        {
+            get { return _appctrlKey; }
+            set { _appctrlKey = value; }
+        }
+        public string appcodeKey
+        {
+            get { return _appcodeKey; }
+            set { _appcodeKey = value; }
+        }
 
         [Category("Custom props")]
         public string appName
@@ -50,13 +62,34 @@ namespace Shorty
 
             if (File.Exists(fileName))
             {
-                    string[] lines = File.ReadAllLines(fileName);
-                    string full = (lines.Length+1) + ", "+appName+", "+appLoaction;
-                    File.AppendAllText(fileName, full + Environment.NewLine);
+                string[] lines = File.ReadAllLines(fileName);
+
+                // Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
+                // Compute the addition of each combination of the keys you want to be pressed
+                // ALT+CTRL = 1 + 2 = 3 , CTRL+SHIFT = 2 + 4 = 6...
+                if (controlCobox.SelectedItem.ToString() == "SHIFT")
+                    appctrlKey = "6";
+                else
+                    appctrlKey = "3";
+
+                appcodeKey = keyCbox.SelectedItem.ToString();
+
+                string lineLog = (appName + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey).ToLower();
+
+                if (Array.Find(lines, s => s.Equals(lineLog)) != null)
+                {
+                    MessageBox.Show("Cant be added twice !!");
+                    this.Parent.Controls.Clear();
+                    return;
+                }
+
+
+                File.AppendAllText(fileName, lineLog + Environment.NewLine);
             }
 
             appName = "";
             appLoaction = "";
+            iconBox.Image = null;
             this.Parent.Controls.Clear();
         }
         private void cancelBtn_Click(object sender, EventArgs e)

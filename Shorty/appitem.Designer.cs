@@ -30,9 +30,9 @@ namespace Shorty
         private void InitializeComponent()
         {
             this.panelitem = new System.Windows.Forms.Panel();
+            this.shortcutLbl = new System.Windows.Forms.Label();
             this.openBtn = new System.Windows.Forms.Button();
             this.remBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
             this.itemLabel = new System.Windows.Forms.Label();
             this.itemIcon = new System.Windows.Forms.PictureBox();
             this.panelitem.SuspendLayout();
@@ -44,9 +44,9 @@ namespace Shorty
             this.panelitem.BackColor = System.Drawing.Color.Transparent;
             this.panelitem.BackgroundImage = global::Shorty.Properties.Resources.objectpanel530x50;
             this.panelitem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelitem.Controls.Add(this.shortcutLbl);
             this.panelitem.Controls.Add(this.openBtn);
             this.panelitem.Controls.Add(this.remBtn);
-            this.panelitem.Controls.Add(this.editBtn);
             this.panelitem.Controls.Add(this.itemLabel);
             this.panelitem.Controls.Add(this.itemIcon);
             this.panelitem.Dock = System.Windows.Forms.DockStyle.Top;
@@ -55,6 +55,14 @@ namespace Shorty
             this.panelitem.Name = "panelitem";
             this.panelitem.Size = new System.Drawing.Size(450, 55);
             this.panelitem.TabIndex = 0;
+            // 
+            // shortcutLbl
+            // 
+            this.shortcutLbl.AutoSize = true;
+            this.shortcutLbl.Location = new System.Drawing.Point(203, 20);
+            this.shortcutLbl.Name = "shortcutLbl";
+            this.shortcutLbl.Size = new System.Drawing.Size(0, 15);
+            this.shortcutLbl.TabIndex = 4;
             // 
             // openBtn
             // 
@@ -66,7 +74,7 @@ namespace Shorty
             this.openBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.openBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.openBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openBtn.Location = new System.Drawing.Point(244, 15);
+            this.openBtn.Location = new System.Drawing.Point(306, 15);
             this.openBtn.Name = "openBtn";
             this.openBtn.Size = new System.Drawing.Size(75, 25);
             this.openBtn.TabIndex = 3;
@@ -84,28 +92,12 @@ namespace Shorty
             this.remBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.remBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.remBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.remBtn.Location = new System.Drawing.Point(394, 16);
+            this.remBtn.Location = new System.Drawing.Point(395, 16);
             this.remBtn.Name = "remBtn";
             this.remBtn.Size = new System.Drawing.Size(26, 23);
             this.remBtn.TabIndex = 2;
             this.remBtn.UseVisualStyleBackColor = false;
             this.remBtn.Click += new System.EventHandler(this.remBtn_Click);
-            // 
-            // editBtn
-            // 
-            this.editBtn.BackColor = System.Drawing.Color.Transparent;
-            this.editBtn.BackgroundImage = global::Shorty.Properties.Resources.optbtn;
-            this.editBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editBtn.FlatAppearance.BorderSize = 0;
-            this.editBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Location = new System.Drawing.Point(360, 16);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(26, 23);
-            this.editBtn.TabIndex = 2;
-            this.editBtn.UseVisualStyleBackColor = false;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // itemLabel
             // 
@@ -113,6 +105,7 @@ namespace Shorty
             this.itemLabel.BackColor = System.Drawing.Color.Transparent;
             this.itemLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.itemLabel.Location = new System.Drawing.Point(84, 18);
+            this.itemLabel.MaximumSize = new System.Drawing.Size(70, 0);
             this.itemLabel.Name = "itemLabel";
             this.itemLabel.Size = new System.Drawing.Size(0, 21);
             this.itemLabel.TabIndex = 1;
@@ -146,9 +139,9 @@ namespace Shorty
 
         private System.Windows.Forms.Panel panelitem;
         private System.Windows.Forms.Button remBtn;
-        private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Label itemLabel;
         private System.Windows.Forms.PictureBox itemIcon;
         private System.Windows.Forms.Button openBtn;
+        private System.Windows.Forms.Label shortcutLbl;
     }
 }
