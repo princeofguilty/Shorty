@@ -58,6 +58,13 @@ namespace Shorty
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+
+            if(controlCobox.SelectedIndex == -1 || keyCbox.SelectedIndex == -1 || locBox.TextLength == 0)
+            {
+                MessageBox.Show("don't leave anything empty");
+                return;
+            }
+
             string fileName = @"C:\Temp\appslog.txt";
 
             if (File.Exists(fileName))
@@ -74,7 +81,7 @@ namespace Shorty
 
                 appcodeKey = keyCbox.SelectedItem.ToString();
 
-                string lineLog = (appName + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey).ToLower();
+                string lineLog = appName.ToLower() + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey.ToUpper();
 
                 if (Array.Find(lines, s => s.Equals(lineLog)) != null)
                 {

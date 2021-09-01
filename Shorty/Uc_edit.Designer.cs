@@ -171,6 +171,7 @@ namespace Shorty
             this.locBox.Location = new System.Drawing.Point(112, 68);
             this.locBox.MaxLength = 25;
             this.locBox.Name = "locBox";
+            this.locBox.ReadOnly = true;
             this.locBox.Size = new System.Drawing.Size(194, 25);
             this.locBox.TabIndex = 1;
             // 
@@ -180,6 +181,7 @@ namespace Shorty
             this.nameBox.Location = new System.Drawing.Point(112, 29);
             this.nameBox.MaxLength = 25;
             this.nameBox.Name = "nameBox";
+            this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(194, 25);
             this.nameBox.TabIndex = 1;
             // 

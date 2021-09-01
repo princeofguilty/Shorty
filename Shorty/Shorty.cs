@@ -19,25 +19,27 @@ namespace Shorty
     {
 
         [DllImport("user32.dll")]
-        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
-        [DllImport("user32.dll")]
-        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
-
-        const int MYACTION_HOTKEY_ID = 1;
-        
+        public static extern int GetAsyncKeyState(Int32 vKey);
 
         CancellationTokenSource _tokensource = null;
+        Thread t = new Thread(module.Start);
+        Thread k = new Thread(Shorty_key);
+
+        public static bool isRunning;
+        public static bool flag;
+
         public static uc_Edit ucedit = new uc_Edit();
         private string logfile = @"C:\Temp\appslog.txt";
 
         public Shorty()
         {
             InitializeComponent();
-            
         }
 
         private void Shorty_Load(object sender, EventArgs e)
         {
+            isRunning = true;
+
             notifyIcon1.BalloonTipTitle = "Minimized";
             notifyIcon1.BalloonTipText = "Click on tray ico to open";
             notifyIcon1.Text = "Shorty";
@@ -51,7 +53,8 @@ namespace Shorty
 
                 }
             }
-            
+            // t.Start();
+            k.Start();
         }
 
         //implement user control in form1 in _flowlayoutpanel control
@@ -136,10 +139,12 @@ namespace Shorty
         private void minmizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            flag = true;
         }
 
         private void close_Btn_Click(object sender, EventArgs e)
         {
+            isRunning = false;
             Application.Exit();
         }
 
@@ -160,6 +165,7 @@ namespace Shorty
 
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
+            flag = false;
             this.Show();
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
@@ -212,9 +218,9 @@ namespace Shorty
         {
             label1.Text = "Drag and Drop here.....";
         }
-        
 
-        //######  ########\\
+
+        //######## FLOWLAYOUTPANEL CONTROL CHANGED EVENT########\\
         private void _flowLayoutPanel_ControlRemoved(object sender, ControlEventArgs e)
         {
             ucedit.appLoaction = "";
@@ -231,27 +237,46 @@ namespace Shorty
             inputTxt.PlaceholderText = "What are you looking for ?";
 
         }
-
-
-        protected override void WndProc(ref Message m)
+        
+        public static void Shorty_key()
         {
-            if(File.Exists(logfile) && WindowState == FormWindowState.Minimized)
-            foreach (var line in File.ReadAllLines(logfile))
+           
+            //int VK_ESCAPE = 0x1B;
+            int VK_SHIFT = 0x10;
+            int VK_CONTROL = 0x11;
+            int VK_MENU = 0x12;
+
+
+            while (isRunning == true)
             {
-                string[] info = line.Split(", ");
-
-                byte[] c = Encoding.ASCII.GetBytes(info[3]);
-
-                RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, Convert.ToInt32(info[2]), c[0]-32);
-                if (m.Msg == 0x0312 && m.WParam.ToInt32() == MYACTION_HOTKEY_ID)
+                string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
+                Thread.Sleep(300);
+                if(flag == true)
+                foreach (var line in lines)
                 {
-                    //MessageBox.Show("1");
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = info[1], UseShellExecute = true });
-                }
+                    string[] info = line.Split(", ");
+                        if (info[2] == "3")
+                            if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                            {
+                                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                            }
+                        if (info[2] == "6")
+                            if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                            {
+                                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                            }
+                    }
             }
 
-            
-            base.WndProc(ref m);
+
+            //for (int i = 32; i<127; i++)
+            //{
+            //    int keystate = GetAsyncKeyState(i);
+            //    if (keystate != 0 )
+            //        MessageBox.Show(((char)i).ToString());
+            //}
+
+
         }
     }
 }
