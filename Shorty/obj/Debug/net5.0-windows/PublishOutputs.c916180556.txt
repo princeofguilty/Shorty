@@ -1,0 +1,5 @@
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\publish\Shorty.exe
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\publish\Shorty.dll
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\publish\Shorty.deps.json
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\publish\Shorty.runtimeconfig.json
+C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\publish\Shorty.pdb

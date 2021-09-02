@@ -14,8 +14,6 @@ namespace Shorty
     public partial class appitem : UserControl
     {
 
-        uc_Edit ucedit = new uc_Edit();
-
         public appitem()
         {
             InitializeComponent();

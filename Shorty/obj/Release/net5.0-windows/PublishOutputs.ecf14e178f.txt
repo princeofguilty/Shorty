@@ -1,0 +1,5 @@
+C:\Users\Servo-Laboratory\Desktop\Shorty\Shorty.exe
+C:\Users\Servo-Laboratory\Desktop\Shorty\Shorty.dll
+C:\Users\Servo-Laboratory\Desktop\Shorty\Shorty.deps.json
+C:\Users\Servo-Laboratory\Desktop\Shorty\Shorty.runtimeconfig.json
+C:\Users\Servo-Laboratory\Desktop\Shorty\Shorty.pdb

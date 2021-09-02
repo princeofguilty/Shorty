@@ -18,9 +18,6 @@ namespace Shorty
     public partial class Shorty : Form
     {
 
-        [DllImport("user32.dll")]
-        public static extern int GetAsyncKeyState(Int32 vKey);
-
         CancellationTokenSource _tokensource = null;
         Thread t = new Thread(module.Start);
         //Thread k = new Thread(Shorty_key);
@@ -34,11 +31,10 @@ namespace Shorty
         {
             InitializeComponent();
         }
-
+        s
         private void Shorty_Load(object sender, EventArgs e)
         {
             additionBtn.Focus();
-            this.KeyPreview = true;
 
             if (!File.Exists(logfile))
             {
@@ -47,6 +43,7 @@ namespace Shorty
 
                 }
             }
+            t.Priority = ThreadPriority.Lowest;
             t.Start();
             //k.Start();
         }
@@ -168,16 +165,6 @@ namespace Shorty
             this.Show();
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
-        }
-
-
-        //###### SHORTCUTS AND KEYDOWNS ########\\
-        private void Shorty_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Shift && e.KeyCode == Keys.H)
-            {
-                inputTxt.Text = "ctrl - h pressed !";
-            }
         }
 
         //###### DRAG AND DROP SECTION ########\\

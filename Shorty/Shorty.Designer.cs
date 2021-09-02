@@ -201,7 +201,6 @@ namespace Shorty
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.Gray;
             this.Load += new System.EventHandler(this.Shorty_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Shorty_KeyDown);
             this.Resize += new System.EventHandler(this.Shorty_Resize);
             this.mainbar.ResumeLayout(false);
             this.mainbar.PerformLayout();
