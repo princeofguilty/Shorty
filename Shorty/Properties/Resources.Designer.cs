@@ -63,9 +63,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addbtn {
+        internal static System.Drawing.Bitmap addbtn_dark {
             get {
-                object obj = ResourceManager.GetObject("addbtn", resourceCulture);
+                object obj = ResourceManager.GetObject("addbtn_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addpressed {
+        internal static System.Drawing.Bitmap addbtn_default {
             get {
-                object obj = ResourceManager.GetObject("addpressed", resourceCulture);
+                object obj = ResourceManager.GetObject("addbtn_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap downpanel {
+        internal static System.Drawing.Bitmap addpanel_dark {
             get {
-                object obj = ResourceManager.GetObject("downpanel", resourceCulture);
+                object obj = ResourceManager.GetObject("addpanel_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exitbtn {
+        internal static System.Drawing.Bitmap addpanel_default {
             get {
-                object obj = ResourceManager.GetObject("exitbtn", resourceCulture);
+                object obj = ResourceManager.GetObject("addpanel_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fico {
+        internal static System.Drawing.Bitmap appitem_dark {
             get {
-                object obj = ResourceManager.GetObject("fico", resourceCulture);
+                object obj = ResourceManager.GetObject("appitem_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap formbg {
+        internal static System.Drawing.Bitmap appitem_default {
             get {
-                object obj = ResourceManager.GetObject("formbg", resourceCulture);
+                object obj = ResourceManager.GetObject("appitem_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Group_1 {
+        internal static System.Drawing.Bitmap exitbtn_dark {
             get {
-                object obj = ResourceManager.GetObject("Group 1", resourceCulture);
+                object obj = ResourceManager.GetObject("exitbtn_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimizebtn {
+        internal static System.Drawing.Bitmap exitbtn_default {
             get {
-                object obj = ResourceManager.GetObject("minimizebtn", resourceCulture);
+                object obj = ResourceManager.GetObject("exitbtn_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap objectpanel530x50 {
+        internal static System.Drawing.Bitmap icon_default {
             get {
-                object obj = ResourceManager.GetObject("objectpanel530x50", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap openbtn {
+        internal static System.Drawing.Bitmap logo_dark {
             get {
-                object obj = ResourceManager.GetObject("openbtn", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap optbtn {
+        internal static System.Drawing.Bitmap logo_default {
             get {
-                object obj = ResourceManager.GetObject("optbtn", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,59 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap S {
+        internal static System.Drawing.Bitmap mainpanel_dark {
             get {
-                object obj = ResourceManager.GetObject("S", resourceCulture);
+                object obj = ResourceManager.GetObject("mainpanel_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mainpanel_default {
+            get {
+                object obj = ResourceManager.GetObject("mainpanel_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimizebtn_dark {
+            get {
+                object obj = ResourceManager.GetObject("minimizebtn_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimizebtn_default {
+            get {
+                object obj = ResourceManager.GetObject("minimizebtn_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap openbtn_dark {
+            get {
+                object obj = ResourceManager.GetObject("openbtn_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap openbtn_default {
+            get {
+                object obj = ResourceManager.GetObject("openbtn_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

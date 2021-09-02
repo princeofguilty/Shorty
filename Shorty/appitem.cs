@@ -48,7 +48,7 @@ namespace Shorty
         public string appName
         {
             get { return _appName; }
-            set { _appName = value; itemLabel.Text = value; }
+            set { _appName = value; itemLabel.Text = value.Substring(0,value.Length); }
         }
         
         [Category("Custom props")]

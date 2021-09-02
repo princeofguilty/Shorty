@@ -42,7 +42,7 @@ namespace Shorty
             // panelitem
             // 
             this.panelitem.BackColor = System.Drawing.Color.Transparent;
-            this.panelitem.BackgroundImage = global::Shorty.Properties.Resources.objectpanel530x50;
+            this.panelitem.BackgroundImage = global::Shorty.Properties.Resources.appitem_default;
             this.panelitem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelitem.Controls.Add(this.shortcutLbl);
             this.panelitem.Controls.Add(this.openBtn);
@@ -59,15 +59,17 @@ namespace Shorty
             // shortcutLbl
             // 
             this.shortcutLbl.AutoSize = true;
-            this.shortcutLbl.Location = new System.Drawing.Point(203, 20);
+            this.shortcutLbl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.shortcutLbl.Location = new System.Drawing.Point(209, 21);
             this.shortcutLbl.Name = "shortcutLbl";
-            this.shortcutLbl.Size = new System.Drawing.Size(0, 15);
+            this.shortcutLbl.Size = new System.Drawing.Size(78, 13);
             this.shortcutLbl.TabIndex = 4;
+            this.shortcutLbl.Text = "AppShortkeys";
             // 
             // openBtn
             // 
             this.openBtn.BackColor = System.Drawing.Color.Transparent;
-            this.openBtn.BackgroundImage = global::Shorty.Properties.Resources.openbtn;
+            this.openBtn.BackgroundImage = global::Shorty.Properties.Resources.openbtn_default;
             this.openBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.openBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.openBtn.FlatAppearance.BorderSize = 0;
@@ -85,7 +87,7 @@ namespace Shorty
             // remBtn
             // 
             this.remBtn.BackColor = System.Drawing.Color.Transparent;
-            this.remBtn.BackgroundImage = global::Shorty.Properties.Resources.minimizebtn;
+            this.remBtn.BackgroundImage = global::Shorty.Properties.Resources.minimizebtn_default;
             this.remBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.remBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.remBtn.FlatAppearance.BorderSize = 0;
@@ -104,18 +106,18 @@ namespace Shorty
             this.itemLabel.AutoSize = true;
             this.itemLabel.BackColor = System.Drawing.Color.Transparent;
             this.itemLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.itemLabel.Location = new System.Drawing.Point(84, 18);
-            this.itemLabel.MaximumSize = new System.Drawing.Size(70, 0);
+            this.itemLabel.Location = new System.Drawing.Point(80, 15);
             this.itemLabel.Name = "itemLabel";
-            this.itemLabel.Size = new System.Drawing.Size(0, 21);
+            this.itemLabel.Size = new System.Drawing.Size(80, 21);
             this.itemLabel.TabIndex = 1;
+            this.itemLabel.Text = "AppName";
             // 
             // itemIcon
             // 
             this.itemIcon.BackColor = System.Drawing.Color.Transparent;
-            this.itemIcon.Location = new System.Drawing.Point(30, 8);
+            this.itemIcon.Location = new System.Drawing.Point(30, 10);
             this.itemIcon.Name = "itemIcon";
-            this.itemIcon.Size = new System.Drawing.Size(43, 39);
+            this.itemIcon.Size = new System.Drawing.Size(32, 32);
             this.itemIcon.TabIndex = 0;
             this.itemIcon.TabStop = false;
             // 

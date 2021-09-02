@@ -47,7 +47,7 @@ namespace Shorty
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Shorty.Properties.Resources.downpanel;
+            this.panel1.BackgroundImage = global::Shorty.Properties.Resources.addpanel_default;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.ctrl_label);
             this.panel1.Controls.Add(this.cancelBtn);
@@ -112,32 +112,32 @@ namespace Shorty
             // 
             this.keyCbox.FormattingEnabled = true;
             this.keyCbox.Items.AddRange(new object[] {
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-            "g",
-            "h",
-            "i",
-            "j",
-            "k",
-            "l",
-            "m",
-            "n",
-            "o",
-            "p",
-            "q",
-            "r",
-            "s",
-            "t",
-            "u",
-            "v",
-            "w",
-            "x",
-            "y",
-            "z"});
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
             this.keyCbox.Location = new System.Drawing.Point(213, 128);
             this.keyCbox.Name = "keyCbox";
             this.keyCbox.Size = new System.Drawing.Size(52, 23);

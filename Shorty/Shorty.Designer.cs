@@ -48,7 +48,7 @@ namespace Shorty
             // mainbar
             // 
             this.mainbar.AllowDrop = true;
-            this.mainbar.BackgroundImage = global::Shorty.Properties.Resources.formbg;
+            this.mainbar.BackgroundImage = global::Shorty.Properties.Resources.mainpanel_default;
             this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mainbar.Controls.Add(this.dragdrop_panel);
             this.mainbar.Controls.Add(this.closeBtn);
@@ -90,7 +90,7 @@ namespace Shorty
             // 
             this.closeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.closeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.closeBtn.BackgroundImage = global::Shorty.Properties.Resources.exitbtn;
+            this.closeBtn.BackgroundImage = global::Shorty.Properties.Resources.exitbtn_default;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.closeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.closeBtn.FlatAppearance.BorderSize = 0;
@@ -110,7 +110,7 @@ namespace Shorty
             // 
             this.additionBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.additionBtn.BackColor = System.Drawing.Color.Transparent;
-            this.additionBtn.BackgroundImage = global::Shorty.Properties.Resources.addbtn;
+            this.additionBtn.BackgroundImage = global::Shorty.Properties.Resources.addbtn_default;
             this.additionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.additionBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.additionBtn.FlatAppearance.BorderSize = 0;
@@ -130,7 +130,7 @@ namespace Shorty
             // 
             this.minmizeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minmizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minmizeBtn.BackgroundImage = global::Shorty.Properties.Resources.minimizebtn;
+            this.minmizeBtn.BackgroundImage = global::Shorty.Properties.Resources.minimizebtn_default;
             this.minmizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.minmizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.minmizeBtn.FlatAppearance.BorderSize = 0;
@@ -162,13 +162,14 @@ namespace Shorty
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
-            this.logo.BackgroundImage = global::Shorty.Properties.Resources.Group_1;
+            this.logo.BackgroundImage = global::Shorty.Properties.Resources.logo_default;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.logo.Location = new System.Drawing.Point(0, 0);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(60, 55);
             this.logo.TabIndex = 0;
+            this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
             // _flowLayoutPanel
             // 

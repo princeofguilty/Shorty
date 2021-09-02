@@ -37,11 +37,6 @@ namespace Shorty
 
         private void Shorty_Load(object sender, EventArgs e)
         {
-            isRunning = true;
-
-            notifyIcon1.BalloonTipTitle = "Minimized";
-            notifyIcon1.BalloonTipText = "Click on tray ico to open";
-            notifyIcon1.Text = "Shorty";
             additionBtn.Focus();
             this.KeyPreview = true;
 
@@ -81,11 +76,12 @@ namespace Shorty
                 try
                 {
                     Icon appico = Icon.ExtractAssociatedIcon(info[1]);
-                    _item.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
+                    //_item.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
+                    _item.appIcon = appico.ToBitmap();
                 }
                 catch (Exception)
                 {
-                    _item.appIcon = Properties.Resources.fico;
+                    _item.appIcon = Properties.Resources.icon_default;
                 }
 
                 _flowLayoutPanel.Controls.Add(_item);
@@ -116,7 +112,7 @@ namespace Shorty
                 await Task.Delay(160, token);
                 viewApps();
             }
-            catch (OperationCanceledException ex)
+            catch (OperationCanceledException)
             {
                 throw;
             }
@@ -132,6 +128,7 @@ namespace Shorty
             dragdrop_panel.Visible = true;
 
             _flowLayoutPanel.Controls.Clear();
+            ucedit.comboboxitem_Rem();
             _flowLayoutPanel.Controls.Add(ucedit);
         }
 
@@ -151,6 +148,10 @@ namespace Shorty
         {
             if (WindowState == FormWindowState.Minimized)
             {
+                notifyIcon1.BalloonTipTitle = "Minimized";
+                notifyIcon1.BalloonTipText = "Click on tray ico to open";
+                notifyIcon1.Text = "Shorty";
+
                 this.Hide();
                 notifyIcon1.Visible = true;
                 notifyIcon1.ShowBalloonTip(1000);
@@ -197,7 +198,7 @@ namespace Shorty
         {
             string[] file = (string[])e.Data.GetData(DataFormats.FileDrop);
             
-            ucedit.appName = Path.GetFileName(file[0]);
+            ucedit.appName = Path.GetFileNameWithoutExtension(file[0]);
             ucedit.appLoaction = file[0];
             try
             {
@@ -206,7 +207,7 @@ namespace Shorty
             }
             catch (Exception)
             {
-                ucedit.appIcon = Properties.Resources.fico;
+                ucedit.appIcon = Properties.Resources.icon_default;
             }
             
 
@@ -233,6 +234,11 @@ namespace Shorty
             _flowLayoutPanel.Controls.Clear();
 
             inputTxt.PlaceholderText = "What are you looking for ?";
+
+        }
+
+        private void logo_Click(object sender, EventArgs e)
+        {
 
         }
 

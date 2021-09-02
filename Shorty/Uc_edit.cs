@@ -24,6 +24,8 @@ namespace Shorty
         private string _appctrlKey;
         private string _appcodeKey;
 
+        private string fileName = @"C:\Temp\appslog.txt";
+
         public string appctrlKey
         {
             get { return _appctrlKey; }
@@ -56,6 +58,26 @@ namespace Shorty
             set { _iconPanel = value; iconBox.Image = value; }
         }
 
+        [Category("Custom props")]
+        public Image panel
+        {
+            get { return panel1.BackgroundImage; }
+            set { panel1.BackgroundImage = value; }
+        }
+
+        public void comboboxitem_Rem()
+        {
+            string[] lines = File.ReadAllLines(fileName);
+            foreach (var line in lines)
+            {
+                string[] info = line.Split(", ");
+                if (keyCbox.Items.Contains(info[3]))
+                {
+                    keyCbox.Items.Remove(info[3]);
+                }
+            }
+        }
+        
         private void addBtn_Click(object sender, EventArgs e)
         {
 
@@ -64,8 +86,6 @@ namespace Shorty
                 MessageBox.Show("don't leave anything empty");
                 return;
             }
-
-            string fileName = @"C:\Temp\appslog.txt";
 
             if (File.Exists(fileName))
             {

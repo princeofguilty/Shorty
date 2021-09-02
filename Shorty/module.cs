@@ -64,7 +64,7 @@ namespace Shorty
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-
+            Thread.Sleep(250);
             string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
             if (Shorty.flag == true)
             foreach (var line in lines)
