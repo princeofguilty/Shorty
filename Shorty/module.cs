@@ -18,8 +18,12 @@ namespace Shorty
         private static LowLevelKeyboardProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
 
-        private static int i = 0;
-        private static string[] key = new string[3];
+        private static int VK_SHIFT = 0x10;
+        private static int VK_CONTROL = 0x11;
+        private static int VK_MENU = 0x12;
+
+        [DllImport("user32.dll")]
+        public static extern int GetAsyncKeyState(Int32 vKey);
         private static string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
 
         private delegate IntPtr LowLevelKeyboardProc(
@@ -42,13 +46,9 @@ namespace Shorty
 
         public static void Start()
         {
-            bool x;
-            while (true)
-            {
                 _hookID = SetHook(_proc);
                 Application.Run();
                 UnhookWindowsHookEx(_hookID);
-            }
         }
 
         private static IntPtr SetHook(LowLevelKeyboardProc proc)
@@ -59,37 +59,34 @@ namespace Shorty
                 return SetWindowsHookEx(WH_KEYBOARD_LL, proc,
                     GetModuleHandle(curModule.ModuleName), 0);
             }
+
         }
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-                if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
-                {
-                    int vkCode = Marshal.ReadInt32(lParam);
-                    var keyName = Enum.GetName(typeof(Keys), vkCode);
-                    MessageBox.Show(keyName);
-                    //if (key[i] == null)
-                    //{
-                    //    if (i > 1)
-                    //    {
-                    //        i = 0;
-                    //        key[0] = null;
-                    //        key[1] = null;
-                    //    }
-                    //
-                    //    key[i] = keyName;
-                    //    i = i + 1;
-                    //}
-                    //
-                    //foreach (var line in lines)
-                    //{
-                    //    string[] info = line.Split(", ");
-                    //    if (key[0] == info[2] && key[1] == info[3])
-                    //        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
-                    //    //MessageBox.Show("key 0: " + key[0] + "key 1: " + key[1]);
-                    //
-                    //}
-                }  
+
+            string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
+            if (Shorty.flag == true)
+            foreach (var line in lines)
+            {
+                string[] info = line.Split(", ");
+                if (info[2] == "3")
+                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                    {
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                    }
+                if (info[2] == "6")
+                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                    {
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                    }
+            }
+            //if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
+            //{
+            //    int vkCode = Marshal.ReadInt32(lParam);
+            //    var keyName = Enum.GetName(typeof(Keys), vkCode);
+            //    
+            //}  
 
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
