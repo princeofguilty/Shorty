@@ -216,12 +216,12 @@ namespace Shorty
         private System.Windows.Forms.TextBox inputTxt;
         private System.Windows.Forms.Panel logo;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.Button minmizeBtn;
         private System.Windows.Forms.Button additionBtn;
         private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Panel dragdrop_panel;
         private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Button minmizeBtn;
     }
 }
 

@@ -23,26 +23,30 @@ namespace Shorty
         //Thread k = new Thread(Shorty_key);
 
         public static bool flag;
-
         public static uc_Edit ucedit = new uc_Edit();
-        private string logfile = @"C:\Temp\appslog.txt";
+
+        private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty";
+        private string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\Shorty\LogData.txt";
 
         public Shorty()
         {
             InitializeComponent();
         }
-        s
+        
         private void Shorty_Load(object sender, EventArgs e)
         {
             additionBtn.Focus();
 
-            if (!File.Exists(logfile))
+            if (!Directory.Exists(subdir))
             {
-                using (StreamWriter sw = File.CreateText(logfile))
-                {
-
-                }
+                Directory.CreateDirectory(subdir);
+                using (StreamWriter sw = File.CreateText(logfile)) { }
             }
+            else if(!File.Exists(logfile))
+            {
+                using (StreamWriter sw = File.CreateText(logfile)) { }
+            }
+
             t.Priority = ThreadPriority.Lowest;
             t.Start();
             //k.Start();
@@ -55,8 +59,13 @@ namespace Shorty
 
             foreach (var line in File.ReadAllLines(logfile))
             {
-                appitem _item = new appitem();
                 string[] info = line.Split(", ");
+
+                if (!info[0].StartsWith(inputTxt.Text.ToLower()))
+                    continue;
+             
+                appitem _item = new appitem();
+                
                 _item.appName = info[0];
                 _item.applocation = info[1];
                 _item.appctrlKey = info[2];
@@ -66,9 +75,6 @@ namespace Shorty
                     _item.appshortcut = "CTRL + ALT "+ info[3].ToUpper();
                 else
                     _item.appshortcut = "CTRL + SHIFT " + info[3].ToUpper();
-
-                if (!_item.appName.StartsWith(inputTxt.Text.ToLower()))
-                    continue;
 
                 try
                 {
@@ -132,7 +138,7 @@ namespace Shorty
         private void minmizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-            flag = true;
+            //flag = true;
         }
 
         private void close_Btn_Click(object sender, EventArgs e)
@@ -145,8 +151,8 @@ namespace Shorty
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                notifyIcon1.BalloonTipTitle = "Minimized";
-                notifyIcon1.BalloonTipText = "Click on tray ico to open";
+                notifyIcon1.BalloonTipTitle = "Relaxing here";
+                notifyIcon1.BalloonTipText = "For anyhing click on me";
                 notifyIcon1.Text = "Shorty";
 
                 this.Hide();
@@ -161,7 +167,7 @@ namespace Shorty
 
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
-            flag = false;
+            //flag = false;
             this.Show();
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
@@ -226,7 +232,11 @@ namespace Shorty
 
         private void logo_Click(object sender, EventArgs e)
         {
-
+            if (flag == false)
+                logo.BackgroundImage = Properties.Resources.logo_click;
+            else
+                logo.BackgroundImage = Properties.Resources.logo_default;
+            flag = !flag;
         }
 
         //######## Global key hook is better than GetAsyncKeyState using loop ########\\

@@ -24,7 +24,7 @@ namespace Shorty
         private string _appctrlKey;
         private string _appcodeKey;
 
-        private string fileName = @"C:\Temp\appslog.txt";
+        private string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ @"\Shorty\LogData.txt";
 
         public string appctrlKey
         {
@@ -67,7 +67,7 @@ namespace Shorty
 
         public void comboboxitem_Rem()
         {
-            string[] lines = File.ReadAllLines(fileName);
+            string[] lines = File.ReadAllLines(logfile);
             foreach (var line in lines)
             {
                 string[] info = line.Split(", ");
@@ -87,9 +87,9 @@ namespace Shorty
                 return;
             }
 
-            if (File.Exists(fileName))
+            if (File.Exists(logfile))
             {
-                string[] lines = File.ReadAllLines(fileName);
+                string[] lines = File.ReadAllLines(logfile);
 
                 // Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
                 // Compute the addition of each combination of the keys you want to be pressed
@@ -111,7 +111,7 @@ namespace Shorty
                 }
 
 
-                File.AppendAllText(fileName, lineLog + Environment.NewLine);
+                File.AppendAllText(logfile, lineLog + Environment.NewLine);
             }
 
             appName = "";

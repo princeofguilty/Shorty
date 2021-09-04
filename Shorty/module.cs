@@ -22,9 +22,10 @@ namespace Shorty
         private static int VK_CONTROL = 0x11;
         private static int VK_MENU = 0x12;
 
+        private static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty\LogData.txt";
+
         [DllImport("user32.dll")]
         public static extern int GetAsyncKeyState(Int32 vKey);
-        private static string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
 
         private delegate IntPtr LowLevelKeyboardProc(
             int nCode, IntPtr wParam, IntPtr lParam);
@@ -64,7 +65,7 @@ namespace Shorty
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
+            string[] lines = File.ReadAllLines(logfile);
             if (Shorty.flag == true)
             foreach (var line in lines)
             {
@@ -80,12 +81,6 @@ namespace Shorty
                         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
                     }
             }
-            //if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
-            //{
-            //    int vkCode = Marshal.ReadInt32(lParam);
-            //    var keyName = Enum.GetName(typeof(Keys), vkCode);
-            //    
-            //}  
 
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }

@@ -14,6 +14,8 @@ namespace Shorty
     public partial class appitem : UserControl
     {
 
+        private string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty\LogData.txt";
+
         public appitem()
         {
             InitializeComponent();
@@ -71,7 +73,7 @@ namespace Shorty
         
         private void remBtn_Click(object sender, EventArgs e)
         {
-            string fileName = @"C:\Temp\appslog.txt";
+            string fileName = logfile;
 
             if (File.Exists(fileName))
             {

@@ -153,6 +153,16 @@ namespace Shorty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_click {
+            get {
+                object obj = ResourceManager.GetObject("logo_click", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_dark {
             get {
                 object obj = ResourceManager.GetObject("logo_dark", resourceCulture);
