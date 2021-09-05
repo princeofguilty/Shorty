@@ -22,11 +22,11 @@ namespace Shorty
         Thread t = new Thread(module.Start);
         //Thread k = new Thread(Shorty_key);
 
-        public static bool flag;
-        public static uc_Edit ucedit = new uc_Edit();
+        internal static bool flag;
+        internal uc_Edit ucedit = new uc_Edit();
 
         private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty";
-        private string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\Shorty\LogData.txt";
+        internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\Shorty\LogData.txt";
 
         public Shorty()
         {
@@ -35,7 +35,6 @@ namespace Shorty
         
         private void Shorty_Load(object sender, EventArgs e)
         {
-            additionBtn.Focus();
 
             if (!Directory.Exists(subdir))
             {
@@ -50,6 +49,28 @@ namespace Shorty
             t.Priority = ThreadPriority.Lowest;
             t.Start();
             //k.Start();
+
+            _flowLayoutPanel.MouseWheel += _flowLayoutPanel_MouseWheel;
+
+        }
+
+        private void _flowLayoutPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show(e.Delta.ToString());
+            if (e.Delta > 0)
+            {
+                int change = _flowLayoutPanel.VerticalScroll.Value + _flowLayoutPanel.VerticalScroll.SmallChange * 30;
+                _flowLayoutPanel.AutoScrollPosition = new Point(0, change);
+            }
+            else
+            {
+                int change = _flowLayoutPanel.VerticalScroll.Value - _flowLayoutPanel.VerticalScroll.SmallChange * 30;
+                _flowLayoutPanel.AutoScrollPosition = new Point(0, change);
+            }
+        }
+        private void _flowLayoutPanel_MouseEnter(object sender, EventArgs e)
+        {
+            
         }
 
         //implement user control in form1 in _flowlayoutpanel control
@@ -60,37 +81,43 @@ namespace Shorty
             foreach (var line in File.ReadAllLines(logfile))
             {
                 string[] info = line.Split(", ");
+                bool state = false;
 
-                if (!info[0].StartsWith(inputTxt.Text.ToLower()))
-                    continue;
-             
-                appitem _item = new appitem();
-                
-                _item.appName = info[0];
-                _item.applocation = info[1];
-                _item.appctrlKey = info[2];
-                _item.appcodeKey = info[3];
+                if (inputTxt.Text.ToLower() == ">all")  state = true;
+                else if(info[0].StartsWith(inputTxt.Text.ToLower()))  state = true; 
 
-                if (info[2] == "3")
-                    _item.appshortcut = "CTRL + ALT "+ info[3].ToUpper();
-                else
-                    _item.appshortcut = "CTRL + SHIFT " + info[3].ToUpper();
-
-                try
+                if (state)
                 {
-                    Icon appico = Icon.ExtractAssociatedIcon(info[1]);
-                    //_item.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
-                    _item.appIcon = appico.ToBitmap();
-                }
-                catch (Exception)
-                {
-                    _item.appIcon = Properties.Resources.icon_default;
-                }
+                    appitem _item = new appitem();
 
-                _flowLayoutPanel.Controls.Add(_item);
-            }            
+                    _item.appName = info[0];
+                    _item.applocation = info[1];
+                    _item.appctrlKey = info[2];
+                    _item.appcodeKey = info[3];
+
+                    if (info[2] == "3")
+                        _item.appshortcut = "CTRL + ALT " + info[3].ToUpper();
+                    else
+                        _item.appshortcut = "CTRL + SHIFT " + info[3].ToUpper();
+
+                    try
+                    {
+                        Icon appico = Icon.ExtractAssociatedIcon(info[1]);
+                        //_item.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
+                        _item.appIcon = appico.ToBitmap();
+                    }
+                    catch (Exception)
+                    {
+                        _item.appIcon = Properties.Resources.icon_default;
+                    }
+
+                    _flowLayoutPanel.Controls.Add(_item);
+                }
+            }
+
             _flowLayoutPanel.Visible = true;
-
+            //MessageBox.Show(_flowLayoutPanel.Controls.Count.ToString());
+            
             if(inputTxt.Text == "")
                _flowLayoutPanel.Controls.Clear();
         }
@@ -125,12 +152,15 @@ namespace Shorty
         //###### BUTTON CLICKS AND EVENTS ########\\
         private void additionBtn_Click(object sender, EventArgs e)
         {
+
             additionBtn.Visible = false;
-            
+   
+            _flowLayoutPanel.Controls.Clear();
+
             inputTxt.Visible = false;
+
             dragdrop_panel.Visible = true;
 
-            _flowLayoutPanel.Controls.Clear();
             ucedit.comboboxitem_Rem();
             _flowLayoutPanel.Controls.Add(ucedit);
         }
@@ -238,6 +268,11 @@ namespace Shorty
                 logo.BackgroundImage = Properties.Resources.logo_default;
             flag = !flag;
         }
+
+
+
+
+
 
         //######## Global key hook is better than GetAsyncKeyState using loop ########\\
 

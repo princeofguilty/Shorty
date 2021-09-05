@@ -19,7 +19,3 @@ C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\ref\Shorty.dll
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\Shorty.pdb
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\Shorty.genruntimeconfig.cache
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Release\net5.0-windows\Shorty.dll.manifest
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Release\net5.0-windows\Shorty.application
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\Shorty.dll.manifest
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Release\net5.0-windows\Shorty.application

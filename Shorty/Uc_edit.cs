@@ -24,8 +24,6 @@ namespace Shorty
         private string _appctrlKey;
         private string _appcodeKey;
 
-        private string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ @"\Shorty\LogData.txt";
-
         public string appctrlKey
         {
             get { return _appctrlKey; }
@@ -65,9 +63,14 @@ namespace Shorty
             set { panel1.BackgroundImage = value; }
         }
 
-        public void comboboxitem_Rem()
+        internal void comboboxitem_Rem()
         {
-            string[] lines = File.ReadAllLines(logfile);
+            keyCbox.SelectedIndex = -1;
+            keyCbox.Items.Clear();
+            keyCbox.Items.AddRange(new string[] 
+            {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"});
+
+            string[] lines = File.ReadAllLines(Shorty.logfile);
             foreach (var line in lines)
             {
                 string[] info = line.Split(", ");
@@ -87,9 +90,9 @@ namespace Shorty
                 return;
             }
 
-            if (File.Exists(logfile))
+            if (File.Exists(Shorty.logfile))
             {
-                string[] lines = File.ReadAllLines(logfile);
+                string[] lines = File.ReadAllLines(Shorty.logfile);
 
                 // Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
                 // Compute the addition of each combination of the keys you want to be pressed
@@ -103,7 +106,7 @@ namespace Shorty
 
                 string lineLog = appName.ToLower() + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey.ToUpper();
 
-                if (Array.Find(lines, s => s.Equals(lineLog)) != null)
+                if (Array.Find(lines, s => s.Split(", ").ElementAt(0).Equals(appName.ToLower())) != null)
                 {
                     MessageBox.Show("Cant be added twice !!");
                     this.Parent.Controls.Clear();
@@ -111,7 +114,7 @@ namespace Shorty
                 }
 
 
-                File.AppendAllText(logfile, lineLog + Environment.NewLine);
+                File.AppendAllText(Shorty.logfile, lineLog + Environment.NewLine);
             }
 
             appName = "";

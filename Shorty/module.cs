@@ -22,7 +22,6 @@ namespace Shorty
         private static int VK_CONTROL = 0x11;
         private static int VK_MENU = 0x12;
 
-        private static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty\LogData.txt";
 
         [DllImport("user32.dll")]
         public static extern int GetAsyncKeyState(Int32 vKey);
@@ -65,7 +64,7 @@ namespace Shorty
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            string[] lines = File.ReadAllLines(logfile);
+            string[] lines = File.ReadAllLines(Shorty.logfile);
             if (Shorty.flag == true)
             foreach (var line in lines)
             {

@@ -173,6 +173,9 @@ namespace Shorty
             // 
             // _flowLayoutPanel
             // 
+            this._flowLayoutPanel.AutoScroll = true;
+            this._flowLayoutPanel.AutoSize = true;
+            this._flowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this._flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this._flowLayoutPanel.Location = new System.Drawing.Point(0, 55);
             this._flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -180,6 +183,7 @@ namespace Shorty
             this._flowLayoutPanel.Size = new System.Drawing.Size(450, 218);
             this._flowLayoutPanel.TabIndex = 0;
             this._flowLayoutPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this._flowLayoutPanel_ControlRemoved);
+            this._flowLayoutPanel.MouseEnter += new System.EventHandler(this._flowLayoutPanel_MouseEnter);
             // 
             // notifyIcon1
             // 
@@ -207,6 +211,7 @@ namespace Shorty
             this.dragdrop_panel.ResumeLayout(false);
             this.dragdrop_panel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

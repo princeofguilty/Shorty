@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Shorty</id>
+    <version>1.0.0</version>
+    <authors>+905077976098</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\Shorty.runtimeconfig.json" target="lib\net5.0-windows7.0\Shorty.runtimeconfig.json" />
+    <file src="C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\bin\Debug\net5.0-windows\Shorty.dll" target="lib\net5.0-windows7.0\Shorty.dll" />
+  </files>
+</package>
