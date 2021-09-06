@@ -56,21 +56,24 @@ namespace Shorty
 
         private void _flowLayoutPanel_MouseWheel(object sender, MouseEventArgs e)
         {
-            MessageBox.Show(e.Delta.ToString());
-            if (e.Delta > 0)
+            //MessageBox.Show(e.Delta.ToString());
+            var x = _flowLayoutPanel.Controls.Count;
+            int i = 0;
+            
+            foreach (Control cont in _flowLayoutPanel.Controls)
             {
-                int change = _flowLayoutPanel.VerticalScroll.Value + _flowLayoutPanel.VerticalScroll.SmallChange * 30;
-                _flowLayoutPanel.AutoScrollPosition = new Point(0, change);
-            }
-            else
-            {
-                int change = _flowLayoutPanel.VerticalScroll.Value - _flowLayoutPanel.VerticalScroll.SmallChange * 30;
-                _flowLayoutPanel.AutoScrollPosition = new Point(0, change);
+                if (e.Delta > 0)
+                {
+                    if (_flowLayoutPanel.Controls.GetChildIndex(cont) == 0)
+                        _flowLayoutPanel.Controls.SetChildIndex(cont, x);
+                    else
+                        _flowLayoutPanel.Controls.SetChildIndex(cont, i++);
+                }
             }
         }
         private void _flowLayoutPanel_MouseEnter(object sender, EventArgs e)
         {
-            
+            _flowLayoutPanel.Focus();
         }
 
         //implement user control in form1 in _flowlayoutpanel control
@@ -114,7 +117,6 @@ namespace Shorty
                     _flowLayoutPanel.Controls.Add(_item);
                 }
             }
-
             _flowLayoutPanel.Visible = true;
             //MessageBox.Show(_flowLayoutPanel.Controls.Count.ToString());
             

@@ -173,9 +173,9 @@ namespace Shorty
             // 
             // _flowLayoutPanel
             // 
-            this._flowLayoutPanel.AutoScroll = true;
             this._flowLayoutPanel.AutoSize = true;
             this._flowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this._flowLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this._flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this._flowLayoutPanel.Location = new System.Drawing.Point(0, 55);
             this._flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -196,14 +196,14 @@ namespace Shorty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(450, 273);
             this.Controls.Add(this._flowLayoutPanel);
             this.Controls.Add(this.mainbar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Shorty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.TransparencyKey = System.Drawing.Color.Gray;
+            this.TransparencyKey = System.Drawing.Color.AliceBlue;
             this.Load += new System.EventHandler(this.Shorty_Load);
             this.Resize += new System.EventHandler(this.Shorty_Resize);
             this.mainbar.ResumeLayout(false);
