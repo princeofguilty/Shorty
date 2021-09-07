@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Shorty
 {
@@ -17,6 +13,8 @@ namespace Shorty
         {
             InitializeComponent();
         }
+
+        private string[] lines;
 
         private string _nameBox;
         private string _lockBox;
@@ -70,7 +68,8 @@ namespace Shorty
             keyCbox.Items.AddRange(new string[] 
             {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"});
 
-            string[] lines = File.ReadAllLines(Shorty.logfile);
+            lines = File.ReadAllLines(Shorty.logfile);
+
             foreach (var line in lines)
             {
                 string[] info = line.Split(", ");
@@ -92,7 +91,7 @@ namespace Shorty
 
             if (File.Exists(Shorty.logfile))
             {
-                string[] lines = File.ReadAllLines(Shorty.logfile);
+                lines = File.ReadAllLines(Shorty.logfile);
 
                 // Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
                 // Compute the addition of each combination of the keys you want to be pressed
@@ -112,7 +111,6 @@ namespace Shorty
                     this.Parent.Controls.Clear();
                     return;
                 }
-
 
                 File.AppendAllText(Shorty.logfile, lineLog + Environment.NewLine);
             }

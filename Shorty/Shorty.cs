@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.InteropServices;
 
 namespace Shorty
 {
@@ -24,6 +18,7 @@ namespace Shorty
 
         internal static bool flag;
         internal uc_Edit ucedit = new uc_Edit();
+        private string[] dragedfile;
 
         private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Shorty";
         internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\Shorty\LogData.txt";
@@ -35,46 +30,24 @@ namespace Shorty
         
         private void Shorty_Load(object sender, EventArgs e)
         {
+            KeyPreview = true;
 
             if (!Directory.Exists(subdir))
             {
                 Directory.CreateDirectory(subdir);
-                using (StreamWriter sw = File.CreateText(logfile)) { }
+                using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
             else if(!File.Exists(logfile))
             {
-                using (StreamWriter sw = File.CreateText(logfile)) { }
+                using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
 
             t.Priority = ThreadPriority.Lowest;
             t.Start();
             //k.Start();
 
-            _flowLayoutPanel.MouseWheel += _flowLayoutPanel_MouseWheel;
-
         }
 
-        private void _flowLayoutPanel_MouseWheel(object sender, MouseEventArgs e)
-        {
-            //MessageBox.Show(e.Delta.ToString());
-            var x = _flowLayoutPanel.Controls.Count;
-            int i = 0;
-            
-            foreach (Control cont in _flowLayoutPanel.Controls)
-            {
-                if (e.Delta > 0)
-                {
-                    if (_flowLayoutPanel.Controls.GetChildIndex(cont) == 0)
-                        _flowLayoutPanel.Controls.SetChildIndex(cont, x);
-                    else
-                        _flowLayoutPanel.Controls.SetChildIndex(cont, i++);
-                }
-            }
-        }
-        private void _flowLayoutPanel_MouseEnter(object sender, EventArgs e)
-        {
-            _flowLayoutPanel.Focus();
-        }
 
         //implement user control in form1 in _flowlayoutpanel control
         private void viewApps() 
@@ -118,10 +91,32 @@ namespace Shorty
                 }
             }
             _flowLayoutPanel.Visible = true;
-            //MessageBox.Show(_flowLayoutPanel.Controls.Count.ToString());
-            
-            if(inputTxt.Text == "")
-               _flowLayoutPanel.Controls.Clear();
+
+            if (inputTxt.Text == "")
+                _flowLayoutPanel.Controls.Clear();
+        }
+
+
+        private void inputTxt_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Up)
+                {
+                    Thread.Sleep(30);
+                    _flowLayoutPanel.Controls.SetChildIndex(_flowLayoutPanel.Controls[_flowLayoutPanel.Controls.Count - 1], _flowLayoutPanel.Controls.IndexOf(GetNextControl(_flowLayoutPanel.Controls[_flowLayoutPanel.Controls.Count - 1], true)));
+                }
+                else if (e.KeyCode == Keys.Down)
+                {
+                    Thread.Sleep(30);
+                    _flowLayoutPanel.Controls.SetChildIndex(_flowLayoutPanel.Controls[0], _flowLayoutPanel.Controls.IndexOf(GetNextControl(_flowLayoutPanel.Controls[0], false)));
+                }
+            }
+            catch (Exception) { }
+            finally
+            {
+                inputTxt.Select(inputTxt.Text.Length, 0);
+            }
         }
 
         //detecting input change and usercontrol updates
@@ -129,9 +124,10 @@ namespace Shorty
 
         private void inputTxt_TextChanged(object sender, EventArgs e)
         {
-            if(_tokensource != null)
-                _tokensource.Cancel();
-
+            //if(_tokensource != null)
+            //    _tokensource.Cancel();
+            _tokensource?.Cancel();
+            
             _tokensource = new CancellationTokenSource();
             _ = awaitforAsync(_tokensource.Token);
             _flowLayoutPanel.Visible = false;
@@ -189,7 +185,7 @@ namespace Shorty
 
                 this.Hide();
                 notifyIcon1.Visible = true;
-                notifyIcon1.ShowBalloonTip(1000);
+                notifyIcon1.ShowBalloonTip(500);
             }
             else if (FormWindowState.Normal == this.WindowState)
             { notifyIcon1.Visible = false; }
@@ -209,9 +205,9 @@ namespace Shorty
 
         private void dragdrop_panel_DragEnter(object sender, DragEventArgs e)
         {
-            string[] vs = (string[])e.Data.GetData(DataFormats.FileDrop);
+            dragedfile = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-            if (Path.GetExtension(vs[0]).ToString() == ".lnk")
+            if (Path.GetExtension(dragedfile[0]).ToString() == ".lnk")
             {
                 label1.Text = ".lnk extensions are not allawode";
             }
@@ -221,21 +217,18 @@ namespace Shorty
 
         private void dragdrop_panel_DragDrop(object sender, DragEventArgs e)
         {
-            string[] file = (string[])e.Data.GetData(DataFormats.FileDrop);
             
-            ucedit.appName = Path.GetFileNameWithoutExtension(file[0]);
-            ucedit.appLoaction = file[0];
+            ucedit.appName = Path.GetFileNameWithoutExtension(dragedfile[0]);
+            ucedit.appLoaction = dragedfile[0];
             try
             {
-                Icon appico = Icon.ExtractAssociatedIcon(file[0]);
-                ucedit.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32,32)).Handle);
+                Icon appico = Icon.ExtractAssociatedIcon(dragedfile[0]);
+                ucedit.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
             }
             catch (Exception)
             {
                 ucedit.appIcon = Properties.Resources.icon_default;
             }
-            
-
         }
 
         private void dragdrop_panel_DragLeave(object sender, EventArgs e)
@@ -270,8 +263,6 @@ namespace Shorty
                 logo.BackgroundImage = Properties.Resources.logo_default;
             flag = !flag;
         }
-
-
 
 
 

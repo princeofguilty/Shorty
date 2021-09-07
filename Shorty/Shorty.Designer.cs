@@ -61,7 +61,7 @@ namespace Shorty
             this.mainbar.Margin = new System.Windows.Forms.Padding(0);
             this.mainbar.Name = "mainbar";
             this.mainbar.Size = new System.Drawing.Size(450, 55);
-            this.mainbar.TabIndex = 0;
+            this.mainbar.TabIndex = 7;
             // 
             // dragdrop_panel
             // 
@@ -71,7 +71,8 @@ namespace Shorty
             this.dragdrop_panel.Location = new System.Drawing.Point(67, 7);
             this.dragdrop_panel.Name = "dragdrop_panel";
             this.dragdrop_panel.Size = new System.Drawing.Size(261, 41);
-            this.dragdrop_panel.TabIndex = 2;
+            this.dragdrop_panel.TabIndex = 5;
+            this.dragdrop_panel.TabStop = true;
             this.dragdrop_panel.Visible = false;
             this.dragdrop_panel.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragdrop_panel_DragDrop);
             this.dragdrop_panel.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragdrop_panel_DragEnter);
@@ -83,7 +84,7 @@ namespace Shorty
             this.label1.Location = new System.Drawing.Point(8, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 15);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Drag and Drop here.....";
             // 
             // closeBtn
@@ -102,7 +103,8 @@ namespace Shorty
             this.closeBtn.Location = new System.Drawing.Point(411, 16);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(27, 23);
-            this.closeBtn.TabIndex = 1;
+            this.closeBtn.TabIndex = 0;
+            this.closeBtn.TabStop = false;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.close_Btn_Click);
             // 
@@ -122,7 +124,8 @@ namespace Shorty
             this.additionBtn.Location = new System.Drawing.Point(345, 16);
             this.additionBtn.Name = "additionBtn";
             this.additionBtn.Size = new System.Drawing.Size(27, 23);
-            this.additionBtn.TabIndex = 1;
+            this.additionBtn.TabIndex = 0;
+            this.additionBtn.TabStop = false;
             this.additionBtn.UseVisualStyleBackColor = false;
             this.additionBtn.Click += new System.EventHandler(this.additionBtn_Click);
             // 
@@ -142,7 +145,8 @@ namespace Shorty
             this.minmizeBtn.Location = new System.Drawing.Point(378, 16);
             this.minmizeBtn.Name = "minmizeBtn";
             this.minmizeBtn.Size = new System.Drawing.Size(27, 23);
-            this.minmizeBtn.TabIndex = 1;
+            this.minmizeBtn.TabIndex = 0;
+            this.minmizeBtn.TabStop = false;
             this.minmizeBtn.UseVisualStyleBackColor = false;
             this.minmizeBtn.Click += new System.EventHandler(this.minmizeBtn_Click);
             // 
@@ -156,8 +160,9 @@ namespace Shorty
             this.inputTxt.Name = "inputTxt";
             this.inputTxt.PlaceholderText = "What are you looking for ?";
             this.inputTxt.Size = new System.Drawing.Size(252, 22);
-            this.inputTxt.TabIndex = 0;
+            this.inputTxt.TabIndex = 1;
             this.inputTxt.TextChanged += new System.EventHandler(this.inputTxt_TextChanged);
+            this.inputTxt.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.inputTxt_PreviewKeyDown);
             // 
             // logo
             // 
@@ -168,7 +173,7 @@ namespace Shorty
             this.logo.Location = new System.Drawing.Point(0, 0);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(60, 55);
-            this.logo.TabIndex = 0;
+            this.logo.TabIndex = 9;
             this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
             // _flowLayoutPanel
@@ -181,9 +186,9 @@ namespace Shorty
             this._flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this._flowLayoutPanel.Name = "_flowLayoutPanel";
             this._flowLayoutPanel.Size = new System.Drawing.Size(450, 218);
-            this._flowLayoutPanel.TabIndex = 0;
+            this._flowLayoutPanel.TabIndex = 6;
+            this._flowLayoutPanel.TabStop = true;
             this._flowLayoutPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this._flowLayoutPanel_ControlRemoved);
-            this._flowLayoutPanel.MouseEnter += new System.EventHandler(this._flowLayoutPanel_MouseEnter);
             // 
             // notifyIcon1
             // 

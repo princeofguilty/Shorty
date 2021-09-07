@@ -29,6 +29,7 @@ namespace Shorty
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appitem));
             this.panelitem = new System.Windows.Forms.Panel();
             this.shortcutLbl = new System.Windows.Forms.Label();
             this.openBtn = new System.Windows.Forms.Button();
@@ -42,8 +43,8 @@ namespace Shorty
             // panelitem
             // 
             this.panelitem.BackColor = System.Drawing.Color.Transparent;
-            this.panelitem.BackgroundImage = global::Shorty.Properties.Resources.appitem_default;
-            this.panelitem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelitem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelitem.BackgroundImage")));
+            this.panelitem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelitem.Controls.Add(this.shortcutLbl);
             this.panelitem.Controls.Add(this.openBtn);
             this.panelitem.Controls.Add(this.remBtn);

@@ -18,4 +18,3 @@ C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Sh
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.genruntimeconfig.cache
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.appitem.resources
 C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.uc_Edit.resources
-C:\Users\Servo-Laboratory\source\repos\Shorty\Shorty\obj\Debug\net5.0-windows\Shorty.csprojAssemblyReference.cache

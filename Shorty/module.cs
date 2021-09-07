@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Shorty
@@ -64,22 +59,21 @@ namespace Shorty
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            string[] lines = File.ReadAllLines(Shorty.logfile);
             if (Shorty.flag == true)
-            foreach (var line in lines)
-            {
-                string[] info = line.Split(", ");
-                if (info[2] == "3")
-                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
-                    {
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
-                    }
-                if (info[2] == "6")
-                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
-                    {
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
-                    }
-            }
+                foreach (var line in File.ReadAllLines(Shorty.logfile))
+                {
+                    string[] info = line.Split(", ");
+                    if (info[2] == "3")
+                        if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                        }
+                    if (info[2] == "6")
+                        if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+                        }
+                }
 
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
