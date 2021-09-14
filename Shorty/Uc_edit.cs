@@ -21,6 +21,7 @@ namespace Shorty
         private Image _iconPanel;
         private string _appctrlKey;
         private string _appcodeKey;
+        public string _appcallname;
 
         public string appctrlKey
         {
@@ -103,7 +104,12 @@ namespace Shorty
 
                 appcodeKey = keyCbox.SelectedItem.ToString();
 
-                string lineLog = appName.ToLower() + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey.ToUpper();
+                string CallName = callbox.Text.ToString();
+                CallName = CallName.TrimStart();
+                CallName = CallName.TrimEnd();
+                CallName = CallName.ToLower();
+
+                string lineLog = appName.ToLower() + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey.ToUpper() + ", " + CallName;
 
                 if (Array.Find(lines, s => s.Split(", ").ElementAt(0).Equals(appName.ToLower())) != null)
                 {
@@ -117,6 +123,7 @@ namespace Shorty
 
             appName = "";
             appLoaction = "";
+            _appcallname = "";
             iconBox.Image = null;
             this.Parent.Controls.Clear();
         }
@@ -124,6 +131,7 @@ namespace Shorty
         {
             appName = "";
             appLoaction = "";
+            _appcallname = "";
             this.Parent.Controls.Clear();
         }
     }

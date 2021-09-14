@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Servo-Laboratory\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Servo-Laboratory\\.nuget\\packages"
+      "C:\\Users\\Princ\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Princ\\.nuget\\packages"
     ]
   }
 }

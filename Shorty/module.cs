@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Speech.Recognition;
+
 
 namespace Shorty
 {

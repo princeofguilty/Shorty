@@ -22,6 +22,7 @@ namespace Shorty
         private string _appctrlKey;
         private string _appcodeKey;
         private string _appshortCut;
+        public string appCallName;
 
         public string appshortcut
         {
@@ -57,8 +58,9 @@ namespace Shorty
         public string applocation
         {
             get { return _appLocation; }
-            set { _appLocation = value;}
+            set { _appLocation = value; }
         }
+
 
         private void openBtn_Click(object sender, EventArgs e)
         {

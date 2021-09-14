@@ -70,6 +70,8 @@ namespace Shorty
                     _item.applocation = info[1];
                     _item.appctrlKey = info[2];
                     _item.appcodeKey = info[3];
+                    //_item.appCallName = info[4];
+                    
 
                     if (info[2] == "3")
                         _item.appshortcut = "CTRL + ALT " + info[3].ToUpper();

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj": {}
+    "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj": {
+    "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
+        "projectUniqueName": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj",
         "projectName": "Shorty",
-        "projectPath": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
-        "packagesPath": "C:\\Users\\Servo-Laboratory\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Servo-Laboratory\\source\\repos\\Shorty\\Shorty\\obj\\",
+        "projectPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj",
+        "packagesPath": "C:\\Users\\Princ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Servo-Laboratory\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Princ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "System.Speech": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
