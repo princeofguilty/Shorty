@@ -30,6 +30,8 @@ namespace Shorty
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.callbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ctrl_label = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@ namespace Shorty
             this.scut_Label = new System.Windows.Forms.Label();
             this.loc_Label = new System.Windows.Forms.Label();
             this.name_Label = new System.Windows.Forms.Label();
-            this.callbox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBox)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,25 @@ namespace Shorty
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 218);
             this.panel1.TabIndex = 0;
+            // 
+            // callbox
+            // 
+            this.callbox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.callbox.Location = new System.Drawing.Point(112, 103);
+            this.callbox.MaxLength = 25;
+            this.callbox.Name = "callbox";
+            this.callbox.Size = new System.Drawing.Size(194, 25);
+            this.callbox.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(24, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Shortcut Call";
             // 
             // ctrl_label
             // 
@@ -219,26 +238,6 @@ namespace Shorty
             this.name_Label.Size = new System.Drawing.Size(62, 15);
             this.name_Label.TabIndex = 0;
             this.name_Label.Text = "App name";
-            // 
-            // callbox
-            // 
-            this.callbox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.callbox.Location = new System.Drawing.Point(112, 103);
-            this.callbox.MaxLength = 25;
-            this.callbox.Name = "callbox";
-            this.callbox.ReadOnly = true;
-            this.callbox.Size = new System.Drawing.Size(194, 25);
-            this.callbox.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(24, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Shortcut Call";
             // 
             // uc_Edit
             // 

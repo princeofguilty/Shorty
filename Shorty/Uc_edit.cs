@@ -125,6 +125,7 @@ namespace Shorty
             appLoaction = "";
             _appcallname = "";
             iconBox.Image = null;
+            Speech_recognition.init();
             this.Parent.Controls.Clear();
         }
         private void cancelBtn_Click(object sender, EventArgs e)

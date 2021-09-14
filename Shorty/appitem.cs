@@ -79,6 +79,7 @@ namespace Shorty
                 File.WriteAllLines(fileName, lines);
             }
             this.Parent.Controls.Remove(this);
+            Speech_recognition.init();
             this.Dispose();
         }
     }
