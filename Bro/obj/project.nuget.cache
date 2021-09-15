@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "cEb9bC4QxbSwS0Jkf6HHiSwhf6INPWsKx83SkkyXJM9roJi3skynMMj62VR59RQMVbIZ4n0hPuntZXuXMVs3Eg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\Bro.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.1\\microsoft.netcore.platforms.5.0.1.nupkg.sha512",
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\system.speech\\5.0.0\\system.speech.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
