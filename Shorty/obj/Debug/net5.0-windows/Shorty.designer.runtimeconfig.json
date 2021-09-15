@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Princ\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Princ\\.nuget\\packages"
+      "C:\\Users\\Eduroam204\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Eduroam204\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

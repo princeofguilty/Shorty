@@ -75,11 +75,12 @@ namespace Shorty
             if (File.Exists(fileName))
             {
                 string[] lines = File.ReadAllLines(fileName);
-                lines = lines.Where(element => element != appName + ", " + applocation + ", " + appctrlKey + ", " + appcodeKey).ToArray();
+                lines = lines.Where(element => element.Split(", ")[0] != appName).ToArray();
                 File.WriteAllLines(fileName, lines);
             }
-            this.Parent.Controls.Remove(this);
+
             Speech_recognition.init();
+            this.Parent.Controls.Remove(this);
             this.Dispose();
         }
     }

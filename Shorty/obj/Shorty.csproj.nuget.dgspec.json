@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj": {}
+    "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Shorty\\Shorty.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj": {
+    "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Shorty\\Shorty.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj",
+        "projectUniqueName": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
         "projectName": "Shorty",
-        "projectPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\Shorty.csproj",
-        "packagesPath": "C:\\Users\\Princ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Shorty\\obj\\",
+        "projectPath": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Shorty\\Shorty.csproj",
+        "packagesPath": "C:\\Users\\Eduroam204\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Shorty\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Princ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eduroam204\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

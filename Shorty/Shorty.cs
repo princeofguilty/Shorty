@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace Shorty
 {
-
+    
 
     public partial class Shorty : Form
     {
-
+        
         CancellationTokenSource _tokensource = null;
         Thread t = new Thread(module.Start);
         //Thread k = new Thread(Shorty_key);
@@ -37,10 +37,13 @@ namespace Shorty
                 Directory.CreateDirectory(subdir);
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
-            else if(!File.Exists(logfile))
+            
+            if (!File.Exists(logfile))
             {
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
+
+            //Speech_recognition.init();
 
             t.Priority = ThreadPriority.Lowest;
             t.Start();
