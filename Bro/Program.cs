@@ -18,10 +18,8 @@ namespace Bro
         [STAThread]
         static void Main()
         {
-            Speech_recognition.init();
-
             SpeechSynthesizer sythesizer = new SpeechSynthesizer();
-            sythesizer.Speak("IAM Bro!");
+            sythesizer.Speak("Its Me, Bro!");
             sythesizer.Dispose();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);

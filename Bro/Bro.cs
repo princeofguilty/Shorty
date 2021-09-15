@@ -43,7 +43,7 @@ namespace Bro
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
 
-            //Speech_recognition.init();
+            Speech_recognition.init();
 
             t.Priority = ThreadPriority.Lowest;
             t.Start();

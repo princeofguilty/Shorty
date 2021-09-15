@@ -102,8 +102,6 @@ namespace Bro
                     continue;
                 }
             }
-            //sythesizer.Dispose();
-
 
         }
 
