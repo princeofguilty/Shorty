@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using System.IO;
 using System.Threading;
-using System.Windows.Forms;
-using System.Timers;
 using System.Media;
 
 namespace Shorty
@@ -25,8 +20,8 @@ namespace Shorty
 
         public static void init()
         {
-            SLES.Add("okey shorty");
-            SLES.Add("shorty");
+            SLES.Add("hey bro");
+            SLES.Add("bro");
             SLES.Add("deactivate shortcuts");
 
             foreach (String line in File.ReadAllLines(Shorty.logfile))
@@ -34,7 +29,7 @@ namespace Shorty
                 try
                 {
                     string line_call = line.Split(", ")[4];
-                    SLES.Add("open " + line_call.ToLower() + " shorty");
+                    SLES.Add("open " + line_call.ToLower() + " bro");
                     SLES.Add("open " + line_call.ToLower());
                     //SLES.Add("okey shorty "+line_call.ToLower());
                 }
@@ -60,7 +55,7 @@ namespace Shorty
 
             //MessageBox.Show(e.Result.Text);
 
-            if (e.Result.Confidence < 0.80)
+            if (e.Result.Confidence < 0.5)
                 return;
 
             if (e.Result.Text == "deactivate shortcuts") {
@@ -68,7 +63,7 @@ namespace Shorty
                 //Shorty.logo_Click();
             }
 
-            if (e.Result.Text == "okey shorty" || e.Result.Text == "shorty")
+            if (e.Result.Text == "hey bro" || e.Result.Text == "bro")
             {
                 if (runtime == 1)
                 {
@@ -89,7 +84,8 @@ namespace Shorty
             if (runtime == 0)
                 return;
 
-            sythesizer.Speak("openning " + e.Result.Text.Split(" ")[1]);
+            sythesizer.SpeakAsync("openning " + e.Result.Text.Replace("open ", ""));
+
             foreach (String line in File.ReadAllLines(Shorty.logfile))
             {
                 try

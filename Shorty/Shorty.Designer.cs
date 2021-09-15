@@ -152,6 +152,7 @@ namespace Shorty
             // 
             // inputTxt
             // 
+            this.inputTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(212)))));
             this.inputTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputTxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.inputTxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
