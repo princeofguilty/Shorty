@@ -26,15 +26,20 @@ namespace Shorty
         public static void init()
         {
             SLES.Add("okey shorty");
-            foreach (String line in File.ReadAllLines(Shorty.logfile)) {
+            SLES.Add("shorty");
+            SLES.Add("deactivate shortcuts");
+
+            foreach (String line in File.ReadAllLines(Shorty.logfile))
+            {
                 try
                 {
                     string line_call = line.Split(", ")[4];
-                    SLES.Add("open "+line_call.ToLower()+ " shorty");
+                    SLES.Add("open " + line_call.ToLower() + " shorty");
                     SLES.Add("open " + line_call.ToLower());
                     //SLES.Add("okey shorty "+line_call.ToLower());
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
                     continue;
                 }
             }
@@ -51,16 +56,22 @@ namespace Shorty
 
         static void rec(object sender, SpeechRecognizedEventArgs e)
         {
-            
-            
+
+
             //MessageBox.Show(e.Result.Text);
 
             if (e.Result.Confidence < 0.80)
                 return;
 
-            if (e.Result.Text == "okey shorty")
+            if (e.Result.Text == "deactivate shortcuts") {
+                //Shorty.flag = false;
+                //Shorty.logo_Click();
+            }
+
+            if (e.Result.Text == "okey shorty" || e.Result.Text == "shorty")
             {
-                if (runtime == 1) {
+                if (runtime == 1)
+                {
                     aTimer.Stop();
                     aTimer.Start();
                 }
@@ -78,14 +89,15 @@ namespace Shorty
             if (runtime == 0)
                 return;
 
-            sythesizer.Speak("openning "+e.Result.Text.Split(" ")[1]);
+            sythesizer.Speak("openning " + e.Result.Text.Split(" ")[1]);
             foreach (String line in File.ReadAllLines(Shorty.logfile))
             {
                 try
                 {
                     string[] line_call = line.Split(", ");
 
-                    if (("open " + line_call[4].ToLower()) == e.Result.Text.ToLower()) {
+                    if (("open " + line_call[4].ToLower()) == e.Result.Text.ToLower())
+                    {
                         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = line_call[1], UseShellExecute = true });
                     }
                 }
@@ -95,11 +107,12 @@ namespace Shorty
                 }
             }
             //sythesizer.Dispose();
-            
+
 
         }
 
-        static Task HandleTimer() {
+        static Task HandleTimer()
+        {
             runtime = 0;
             //sythesizer.Speak(runtime.ToString());
             aTimer.Stop();
@@ -107,5 +120,5 @@ namespace Shorty
             return Task.CompletedTask;
         }
     }
-        
+
 }

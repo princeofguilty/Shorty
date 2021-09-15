@@ -260,13 +260,18 @@ namespace Shorty
 
         }
 
-        private void logo_Click(object sender, EventArgs e)
+        internal void logo_Click(object sender, EventArgs e)
         {
             if (flag == false)
                 logo.BackgroundImage = Properties.Resources.logo_click;
             else
                 logo.BackgroundImage = Properties.Resources.logo_default;
             flag = !flag;
+        }
+
+        private void logo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 

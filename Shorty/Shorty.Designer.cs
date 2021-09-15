@@ -175,6 +175,7 @@ namespace Shorty
             this.logo.Size = new System.Drawing.Size(60, 55);
             this.logo.TabIndex = 9;
             this.logo.Click += new System.EventHandler(this.logo_Click);
+            this.logo.Paint += new System.Windows.Forms.PaintEventHandler(this.logo_Paint);
             // 
             // _flowLayoutPanel
             // 
