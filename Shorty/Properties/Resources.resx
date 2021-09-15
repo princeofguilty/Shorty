@@ -118,61 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="appitem_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\objectpanel530x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addpanel_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\downpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizebtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizebtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fico.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exitbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yes.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="openbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addbtn_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mainpanel_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mainpanel_default1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addpanel_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addpanel_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addbtn_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addbtn_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addpanel_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addpanel_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="appitem_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\appitem_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exitbtn_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitbtn_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizebtn_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimizebtn_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="openbtn_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openbtn_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mainpanel_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mainpanel_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="appitem_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\appitem_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yes.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="logo_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainpanel_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainpanel_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimizebtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimizebtn_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="openbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openbtn_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitbtn_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exitbtn_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
