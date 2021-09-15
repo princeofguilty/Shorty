@@ -17,10 +17,11 @@ namespace Shorty
     {
         internal static CancellationTokenSource _tokensource = null;
         private static SpeechRecognitionEngine engine;
-        static Choices SLES = new Choices(); // class Choice of loadGrammer Method
+        private static Choices SLES = new Choices(); // class Choice of loadGrammer Method
         private static System.Timers.Timer aTimer;
         private static int runtime = 0;
-        static SpeechSynthesizer sythesizer;
+        private static SpeechSynthesizer sythesizer;
+        private static SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.yes);
 
         public static void init()
         {
@@ -68,9 +69,9 @@ namespace Shorty
                 aTimer.AutoReset = false;
                 aTimer.Elapsed += async (sender, e) => await HandleTimer();
                 aTimer.Start();
-                sythesizer.Speak("yes");
-                //SystemSounds.Beep.Play();
-                //sythesizer.Dispose();
+
+                player.Play();
+
                 return;
             }
 
@@ -99,7 +100,6 @@ namespace Shorty
         }
 
         static Task HandleTimer() {
-            SpeechSynthesizer sythesizer = new SpeechSynthesizer();
             runtime = 0;
             //sythesizer.Speak(runtime.ToString());
             aTimer.Stop();
