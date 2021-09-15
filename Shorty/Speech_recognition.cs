@@ -8,6 +8,8 @@ using System.Speech.Synthesis;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using System.Timers;
+using System.Media;
 
 namespace Shorty
 {
@@ -16,20 +18,27 @@ namespace Shorty
         internal static CancellationTokenSource _tokensource = null;
         private static SpeechRecognitionEngine engine;
         static Choices SLES = new Choices(); // class Choice of loadGrammer Method
+        private static System.Timers.Timer aTimer;
+        private static int runtime = 0;
+        static SpeechSynthesizer sythesizer;
+
         public static void init()
         {
-
+            SLES.Add("okey shorty");
             foreach (String line in File.ReadAllLines(Shorty.logfile)) {
                 try
                 {
                     string line_call = line.Split(", ")[4];
                     SLES.Add("open "+line_call.ToLower()+ " shorty");
-                    SLES.Add("okey shorty "+line_call.ToLower());
+                    SLES.Add("open " + line_call.ToLower());
+                    //SLES.Add("okey shorty "+line_call.ToLower());
                 }
                 catch (Exception) {
                     continue;
                 }
             }
+
+            sythesizer = new SpeechSynthesizer();
 
             Grammar gr = new Grammar(new GrammarBuilder(SLES));
             engine = new SpeechRecognitionEngine();
@@ -42,20 +51,40 @@ namespace Shorty
         static void rec(object sender, SpeechRecognizedEventArgs e)
         {
             
-            SpeechSynthesizer sythesizer = new SpeechSynthesizer();
-            MessageBox.Show(e.Result.Text);
+            
+            //MessageBox.Show(e.Result.Text);
 
-            if (e.Result.Confidence < 0.73)
+            if (e.Result.Confidence < 0.80)
                 return;
 
-            sythesizer.Speak("openning "+e.Result.Text.Split(" ")[2]);
+            if (e.Result.Text == "okey shorty")
+            {
+                if (runtime == 1) {
+                    aTimer.Stop();
+                    aTimer.Start();
+                }
+                runtime = 1;
+                aTimer = new System.Timers.Timer(5000);
+                aTimer.AutoReset = false;
+                aTimer.Elapsed += async (sender, e) => await HandleTimer();
+                aTimer.Start();
+                sythesizer.Speak("yes");
+                //SystemSounds.Beep.Play();
+                //sythesizer.Dispose();
+                return;
+            }
+
+            if (runtime == 0)
+                return;
+
+            sythesizer.Speak("openning "+e.Result.Text.Split(" ")[1]);
             foreach (String line in File.ReadAllLines(Shorty.logfile))
             {
                 try
                 {
                     string[] line_call = line.Split(", ");
 
-                    if (("okey shorty " + line_call[4].ToLower()) == e.Result.Text.ToLower()) {
+                    if (("open " + line_call[4].ToLower()) == e.Result.Text.ToLower()) {
                         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = line_call[1], UseShellExecute = true });
                     }
                 }
@@ -64,9 +93,18 @@ namespace Shorty
                     continue;
                 }
             }
-            sythesizer.Dispose();
+            //sythesizer.Dispose();
             
 
+        }
+
+        static Task HandleTimer() {
+            SpeechSynthesizer sythesizer = new SpeechSynthesizer();
+            runtime = 0;
+            //sythesizer.Speak(runtime.ToString());
+            aTimer.Stop();
+            //sythesizer.Dispose();
+            return Task.CompletedTask;
         }
     }
         

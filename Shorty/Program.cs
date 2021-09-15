@@ -21,7 +21,7 @@ namespace Shorty
             Speech_recognition.init();
 
             SpeechSynthesizer sythesizer = new SpeechSynthesizer();
-            sythesizer.Speak("Iam here SHORTY!");
+            sythesizer.Speak("IAM SHORTY!");
             sythesizer.Dispose();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
