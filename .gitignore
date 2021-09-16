@@ -4,3 +4,7 @@ Bro/bin/Debug/net5.0-windows/*.pdb
 Bro/obj/Debug/net5.0-windows/*.dll
 Bro/obj/Debug/net5.0-windows/*.pdb
 
+Bro/bin/Release/net5.0-windows/*.dll
+Bro/bin/Release/net5.0-windows/*.pdb
+Bro/obj/Release/net5.0-windows/*.dll
+Bro/obj/Release/net5.0-windows/*.pdb
