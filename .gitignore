@@ -1,0 +1,6 @@
+.vs/
+Bro/bin/Debug/net5.0-windows/*.dll
+Bro/bin/Debug/net5.0-windows/*.pdb
+Bro/obj/Debug/net5.0-windows/*.dll
+Bro/obj/Debug/net5.0-windows/*.pdb
+
