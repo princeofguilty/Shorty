@@ -64,7 +64,7 @@ namespace Bro
             if (Bro.flag == true)
                 foreach (var line in File.ReadAllLines(Bro.logfile))
                 {
-                    string[] info = line.Split(", ");
+                    string[] info = line.Split(",");
                     if (info[2] == "3")
                         if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
                         {

@@ -59,7 +59,7 @@ namespace Bro
 
             foreach (var line in File.ReadAllLines(logfile))
             {
-                string[] info = line.Split(", ");
+                string[] info = line.Split(",");
                 bool state = false;
 
                 if (inputTxt.Text.ToLower() == ">all")  state = true;
@@ -295,7 +295,7 @@ namespace Bro
         //        if(flag == true)
         //        foreach (var line in lines)
         //        {
-        //            string[] info = line.Split(", ");
+        //            string[] info = line.Split(",");
         //                if (info[2] == "3")
         //                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
         //                    {

@@ -73,7 +73,7 @@ namespace Bro
 
             foreach (var line in lines)
             {
-                string[] info = line.Split(", ");
+                string[] info = line.Split(",");
                 if (keyCbox.Items.Contains(info[3]))
                 {
                     keyCbox.Items.Remove(info[3]);
@@ -109,9 +109,9 @@ namespace Bro
                 CallName = CallName.TrimEnd();
                 CallName = CallName.ToLower();
 
-                string lineLog = appName.ToLower() + ", " + appLoaction + ", " + appctrlKey + ", " + appcodeKey.ToUpper() + ", " + CallName;
+                string lineLog = appName.ToLower() + "," + appLoaction + "," + appctrlKey + "," + appcodeKey.ToUpper() + "," + CallName;
 
-                if (Array.Find(lines, s => s.Split(", ").ElementAt(0).Equals(appName.ToLower())) != null)
+                if (Array.Find(lines, s => s.Split(",").ElementAt(0).Equals(appName.ToLower())) != null)
                 {
                     MessageBox.Show("Cant be added twice !!");
                     this.Parent.Controls.Clear();

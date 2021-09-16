@@ -75,7 +75,7 @@ namespace Bro
             if (File.Exists(fileName))
             {
                 string[] lines = File.ReadAllLines(fileName);
-                lines = lines.Where(element => element.Split(", ")[0] != appName).ToArray();
+                lines = lines.Where(element => element.Split(",")[0] != appName).ToArray();
                 File.WriteAllLines(fileName, lines);
             }
 

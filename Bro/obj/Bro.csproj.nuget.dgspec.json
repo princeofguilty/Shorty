@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\Bro.csproj": {}
+    "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\Bro.csproj": {
+    "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\Bro.csproj",
+        "projectUniqueName": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj",
         "projectName": "Bro",
-        "projectPath": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\Bro.csproj",
-        "packagesPath": "C:\\Users\\Eduroam204\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduroam204\\source\\repos\\Shorty\\Bro\\obj\\",
+        "projectPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj",
+        "packagesPath": "C:\\Users\\Princ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Eduroam204\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Princ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
