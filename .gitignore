@@ -3,3 +3,6 @@
 Bro/obj/*/*/*.*
 !Bro/obj/*/*/*.exe
 
+Bro/bin/*/*/*.*
+!Bro/bin/*/*/*.exe
+
