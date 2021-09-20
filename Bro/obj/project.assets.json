@@ -288,19 +288,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Princ\\.nuget\\packages\\": {}
+    "C:\\Users\\Eduroam204\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj",
+      "projectUniqueName": "C:\\Users\\Eduroam204\\Desktop\\Shorty\\Bro\\Bro.csproj",
       "projectName": "Bro",
-      "projectPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\Bro.csproj",
-      "packagesPath": "C:\\Users\\Princ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Princ\\source\\repos\\shorty\\Bro\\obj\\",
+      "projectPath": "C:\\Users\\Eduroam204\\Desktop\\Shorty\\Bro\\Bro.csproj",
+      "packagesPath": "C:\\Users\\Eduroam204\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Eduroam204\\Desktop\\Shorty\\Bro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Princ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eduroam204\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -66,7 +66,7 @@ namespace Bro
         {
             keyCbox.SelectedIndex = -1;
             keyCbox.Items.Clear();
-            keyCbox.Items.AddRange(new string[] 
+            keyCbox.Items.AddRange(new string[]
             {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"});
 
             lines = File.ReadAllLines(Bro.logfile);
@@ -80,11 +80,11 @@ namespace Bro
                 }
             }
         }
-        
+
         private void addBtn_Click(object sender, EventArgs e)
         {
 
-            if(controlCobox.SelectedIndex == -1 || keyCbox.SelectedIndex == -1 || locBox.TextLength == 0)
+            if (controlCobox.SelectedIndex == -1 || keyCbox.SelectedIndex == -1 || locBox.TextLength == 0)
             {
                 MessageBox.Show("don't leave anything empty");
                 return;

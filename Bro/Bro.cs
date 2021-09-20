@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,27 +8,29 @@ using System.Windows.Forms;
 
 namespace Bro
 {
-    
+
 
     public partial class Bro : Form
     {
-        
         CancellationTokenSource _tokensource = null;
         Thread t = new Thread(module.Start);
         //Thread k = new Thread(Bro_key);
 
-        internal static bool flag;
+        internal static bool flag = false;
+        internal static bool flag_speech;
+
         internal uc_Edit ucedit = new uc_Edit();
         private string[] dragedfile;
 
         private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro";
-        internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\Bro\LogData.txt";
+        internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\LogData.txt";
+        private System.Windows.Forms.Timer timer1;
 
         public Bro()
         {
             InitializeComponent();
         }
-        
+
         private void Bro_Load(object sender, EventArgs e)
         {
             KeyPreview = true;
@@ -37,23 +40,22 @@ namespace Bro
                 Directory.CreateDirectory(subdir);
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
-            
+
             if (!File.Exists(logfile))
             {
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
 
-            Speech_recognition.init();
-
             t.Priority = ThreadPriority.Lowest;
             t.Start();
-            //k.Start();
 
+            Speech_recognition.init();
+            InitTimer();
         }
 
 
         //implement user control in form1 in _flowlayoutpanel control
-        private void viewApps() 
+        private void viewApps()
         {
             _flowLayoutPanel.Controls.Clear();
 
@@ -62,8 +64,8 @@ namespace Bro
                 string[] info = line.Split(",");
                 bool state = false;
 
-                if (inputTxt.Text.ToLower() == ">all")  state = true;
-                else if(info[0].StartsWith(inputTxt.Text.ToLower()))  state = true; 
+                if (inputTxt.Text.ToLower() == ">all") state = true;
+                else if (info[0].StartsWith(inputTxt.Text.ToLower())) state = true;
 
                 if (state)
                 {
@@ -74,7 +76,7 @@ namespace Bro
                     _item.appctrlKey = info[2];
                     _item.appcodeKey = info[3];
                     //_item.appCallName = info[4];
-                    
+
 
                     if (info[2] == "3")
                         _item.appshortcut = "CTRL + ALT " + info[3].ToUpper();
@@ -129,10 +131,8 @@ namespace Bro
 
         private void inputTxt_TextChanged(object sender, EventArgs e)
         {
-            //if(_tokensource != null)
-            //    _tokensource.Cancel();
             _tokensource?.Cancel();
-            
+
             _tokensource = new CancellationTokenSource();
             _ = awaitforAsync(_tokensource.Token);
             _flowLayoutPanel.Visible = false;
@@ -149,7 +149,7 @@ namespace Bro
             {
                 throw;
             }
-            
+
         }
 
         //###### BUTTON CLICKS AND EVENTS ########\\
@@ -157,7 +157,7 @@ namespace Bro
         {
 
             additionBtn.Visible = false;
-   
+
             _flowLayoutPanel.Controls.Clear();
 
             inputTxt.Visible = false;
@@ -171,7 +171,6 @@ namespace Bro
         private void minmizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-            //flag = true;
         }
 
         private void close_Btn_Click(object sender, EventArgs e)
@@ -200,7 +199,6 @@ namespace Bro
 
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
-            //flag = false;
             this.Show();
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
@@ -212,23 +210,24 @@ namespace Bro
         {
             dragedfile = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-            if (Path.GetExtension(dragedfile[0]).ToString() == ".lnk")
-            {
-                label1.Text = ".lnk extensions are not allawode";
-            }
-            else
-                e.Effect = DragDropEffects.Copy;
+            //if (Path.GetExtension(dragedfile[0]).ToString() == ".lnk")
+            //{
+            //    label1.Text = ".lnk extensions are not allawode";
+            //}
+            //else
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void dragdrop_panel_DragDrop(object sender, DragEventArgs e)
         {
-            
+
             ucedit.appName = Path.GetFileNameWithoutExtension(dragedfile[0]);
             ucedit.appLoaction = dragedfile[0];
             try
             {
+
                 Icon appico = Icon.ExtractAssociatedIcon(dragedfile[0]);
-                ucedit.appIcon = Bitmap.FromHicon(new Icon(appico, new Size(32, 32)).Handle);
+                ucedit.appIcon = appico.ToBitmap();
             }
             catch (Exception)
             {
@@ -260,64 +259,32 @@ namespace Bro
 
         }
 
-        internal void logo_Click(object sender, EventArgs e)
+
+        public void InitTimer()
         {
-            if (flag == false)
-                logo.BackgroundImage = Properties.Resources.logo_click;
-            else
-                logo.BackgroundImage = Properties.Resources.logo_default;
-            flag = !flag;
+            timer1 = new System.Windows.Forms.Timer();
+            timer1.Tick += new EventHandler(logo_Click);
+            timer1.Interval = 700; // in miliseconds
+            timer1.Start();
         }
 
-        private void logo_Paint(object sender, PaintEventArgs e)
+        public void logo_Click(object sender, EventArgs e)
         {
-
+            if (flag_speech || e != EventArgs.Empty)
+            {
+                //MessageBox.Show("flag speech = " + flag_speech.ToString() + " _/_ flag = " + flag.ToString() + "_/_ e = " + e);
+                if (flag == true)
+                {
+                    logo.BackgroundImage = Properties.Resources.logo_default;
+                }
+                else if (flag == false)
+                {
+                    logo.BackgroundImage = Properties.Resources.logo_click_default;
+                }
+                flag = !flag;
+                flag_speech = false;
+            }
         }
 
-
-
-
-        //######## Global key hook is better than GetAsyncKeyState using loop ########\\
-
-        //public static void Bro_key()
-        //{
-        //   
-        //    //int VK_ESCAPE = 0x1B;
-        //    int VK_SHIFT = 0x10;
-        //    int VK_CONTROL = 0x11;
-        //    int VK_MENU = 0x12;
-        //
-        //
-        //    while (isRunning == true)
-        //    {
-        //        string[] lines = File.ReadAllLines(@"C:\Temp\appslog.txt");
-        //        Thread.Sleep(300);
-        //        if(flag == true)
-        //        foreach (var line in lines)
-        //        {
-        //            string[] info = line.Split(",");
-        //                if (info[2] == "3")
-        //                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
-        //                    {
-        //                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
-        //                    }
-        //                if (info[2] == "6")
-        //                    if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
-        //                    {
-        //                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
-        //                    }
-        //        }
-        //    }
-        //
-        //
-        //    //for (int i = 32; i<127; i++)
-        //    //{
-        //    //    int keystate = GetAsyncKeyState(i);
-        //    //    if (keystate != 0 )
-        //    //        MessageBox.Show(((char)i).ToString());
-        //    //}
-        //
-        //
-        //}
     }
 }

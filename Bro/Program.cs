@@ -11,7 +11,7 @@ namespace Bro
 {
     static class Program
     {
-        
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -26,10 +26,6 @@ namespace Bro
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Bro());
-
         }
-
-
-
     }
 }

@@ -73,7 +73,9 @@ namespace Bro
             // 
             // callbox
             // 
+            this.callbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.callbox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.callbox.ForeColor = System.Drawing.Color.White;
             this.callbox.Location = new System.Drawing.Point(112, 103);
             this.callbox.MaxLength = 25;
             this.callbox.Name = "callbox";
@@ -84,6 +86,7 @@ namespace Bro
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 15);
@@ -93,12 +96,12 @@ namespace Bro
             // ctrl_label
             // 
             this.ctrl_label.AutoSize = true;
-            this.ctrl_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctrl_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ctrl_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ctrl_label.ForeColor = System.Drawing.Color.White;
             this.ctrl_label.Location = new System.Drawing.Point(112, 142);
             this.ctrl_label.Name = "ctrl_label";
-            this.ctrl_label.Size = new System.Drawing.Size(48, 23);
+            this.ctrl_label.Size = new System.Drawing.Size(46, 21);
             this.ctrl_label.TabIndex = 4;
             this.ctrl_label.Text = "CTRL";
             // 
@@ -109,6 +112,7 @@ namespace Bro
             this.cancelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.ForeColor = System.Drawing.Color.White;
             this.cancelBtn.Location = new System.Drawing.Point(239, 177);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
@@ -124,6 +128,7 @@ namespace Bro
             this.addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBtn.ForeColor = System.Drawing.Color.White;
             this.addBtn.Location = new System.Drawing.Point(137, 177);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
@@ -134,6 +139,8 @@ namespace Bro
             // 
             // keyCbox
             // 
+            this.keyCbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
+            this.keyCbox.ForeColor = System.Drawing.Color.White;
             this.keyCbox.FormattingEnabled = true;
             this.keyCbox.Items.AddRange(new object[] {
             "A",
@@ -162,36 +169,40 @@ namespace Bro
             "X",
             "Y",
             "Z"});
-            this.keyCbox.Location = new System.Drawing.Point(224, 142);
+            this.keyCbox.Location = new System.Drawing.Point(239, 142);
             this.keyCbox.Name = "keyCbox";
-            this.keyCbox.Size = new System.Drawing.Size(52, 23);
+            this.keyCbox.Size = new System.Drawing.Size(67, 23);
             this.keyCbox.TabIndex = 3;
             // 
             // controlCobox
             // 
+            this.controlCobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
+            this.controlCobox.ForeColor = System.Drawing.Color.White;
             this.controlCobox.FormattingEnabled = true;
             this.controlCobox.Items.AddRange(new object[] {
             "ALT",
             "SHIFT"});
-            this.controlCobox.Location = new System.Drawing.Point(166, 142);
+            this.controlCobox.Location = new System.Drawing.Point(171, 142);
             this.controlCobox.Name = "controlCobox";
-            this.controlCobox.Size = new System.Drawing.Size(52, 23);
+            this.controlCobox.Size = new System.Drawing.Size(62, 23);
             this.controlCobox.TabIndex = 3;
             // 
             // iconBox
             // 
-            this.iconBox.BackColor = System.Drawing.Color.White;
+            this.iconBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.iconBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.iconBox.Location = new System.Drawing.Point(342, 26);
+            this.iconBox.Location = new System.Drawing.Point(355, 29);
             this.iconBox.Margin = new System.Windows.Forms.Padding(0);
             this.iconBox.Name = "iconBox";
-            this.iconBox.Size = new System.Drawing.Size(60, 60);
+            this.iconBox.Size = new System.Drawing.Size(32, 32);
             this.iconBox.TabIndex = 2;
             this.iconBox.TabStop = false;
             // 
             // locBox
             // 
+            this.locBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.locBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.locBox.ForeColor = System.Drawing.Color.White;
             this.locBox.Location = new System.Drawing.Point(112, 68);
             this.locBox.MaxLength = 25;
             this.locBox.Name = "locBox";
@@ -201,7 +212,9 @@ namespace Bro
             // 
             // nameBox
             // 
+            this.nameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.nameBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nameBox.ForeColor = System.Drawing.Color.White;
             this.nameBox.Location = new System.Drawing.Point(112, 29);
             this.nameBox.MaxLength = 25;
             this.nameBox.Name = "nameBox";
@@ -213,7 +226,8 @@ namespace Bro
             // 
             this.scut_Label.AutoSize = true;
             this.scut_Label.BackColor = System.Drawing.Color.Transparent;
-            this.scut_Label.Location = new System.Drawing.Point(29, 150);
+            this.scut_Label.ForeColor = System.Drawing.Color.White;
+            this.scut_Label.Location = new System.Drawing.Point(24, 147);
             this.scut_Label.Name = "scut_Label";
             this.scut_Label.Size = new System.Drawing.Size(57, 15);
             this.scut_Label.TabIndex = 0;
@@ -223,6 +237,7 @@ namespace Bro
             // 
             this.loc_Label.AutoSize = true;
             this.loc_Label.BackColor = System.Drawing.Color.Transparent;
+            this.loc_Label.ForeColor = System.Drawing.Color.White;
             this.loc_Label.Location = new System.Drawing.Point(24, 71);
             this.loc_Label.Name = "loc_Label";
             this.loc_Label.Size = new System.Drawing.Size(75, 15);
@@ -233,6 +248,7 @@ namespace Bro
             // 
             this.name_Label.AutoSize = true;
             this.name_Label.BackColor = System.Drawing.Color.Transparent;
+            this.name_Label.ForeColor = System.Drawing.Color.White;
             this.name_Label.Location = new System.Drawing.Point(24, 32);
             this.name_Label.Name = "name_Label";
             this.name_Label.Size = new System.Drawing.Size(62, 15);

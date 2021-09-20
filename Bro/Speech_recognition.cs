@@ -5,9 +5,12 @@ using System.Speech.Synthesis;
 using System.IO;
 using System.Threading;
 using System.Media;
+using System.Windows.Forms;
 
 namespace Bro
 {
+    public delegate void kako(string t);
+
     static class Speech_recognition
     {
         internal static CancellationTokenSource _tokensource = null;
@@ -23,18 +26,16 @@ namespace Bro
             SLES.Add("hey bro");
             SLES.Add("bro");
             SLES.Add("deactivate shortcuts");
+            SLES.Add("activate shortcuts");
+            SLES.Add("silence");
 
             foreach (String line in File.ReadAllLines(Bro.logfile))
             {
                 try
                 {
-                    string[] line_call = line.Split(",");
-                    for (int i = 4; i < line_call.Length; i++)
-                    {
-                        SLES.Add("open " + line_call[i].ToLower() + " bro");
-                        SLES.Add("open " + line_call[i].ToLower());
-                        //SLES.Add("okey Bro "+line_call.ToLower());
-                    }
+                    string line_call = line.Split(",")[4];
+                    SLES.Add("open " + line_call.ToLower());
+
                 }
                 catch (Exception)
                 {
@@ -52,21 +53,31 @@ namespace Bro
             engine.SpeechRecognized += rec;
         }
 
-        static void rec(object sender, SpeechRecognizedEventArgs e)
+        internal static void rec(object sender, SpeechRecognizedEventArgs e)
         {
 
+            //if (e.Result.Confidence < 0.4)
+            //  return;
 
-            //MessageBox.Show(e.Result.Text);
-
-            if (e.Result.Confidence < 0.8)
-                return;
-
-            if (e.Result.Text == "deactivate shortcuts") {
-                //Bro.flag = false;
-                //Bro.logo_Click();
+            if (e.Result.Text.Equals("deactivate shortcuts"))
+            {
+                sythesizer.SpeakAsync(e.Result.Text);
+                Bro.flag_speech = true;
+            }
+            else if (e.Result.Text.Equals("activate shortcuts"))
+            {
+                sythesizer.SpeakAsync(e.Result.Text);
+                Bro.flag_speech = true;
             }
 
-            if (e.Result.Text == "hey bro" || e.Result.Text == "bro")
+            if (e.Result.Text.Equals("silence"))
+            {
+                sythesizer.Volume = 0;
+                MessageBox.Show(sythesizer.Volume.ToString());
+            }
+
+
+            if (e.Result.Text.Equals("hey bro") || e.Result.Text.Equals("bro"))
             {
                 if (runtime == 1)
                 {
@@ -87,28 +98,26 @@ namespace Bro
             if (runtime == 0)
                 return;
 
-            sythesizer.SpeakAsync("openning " + e.Result.Text.Replace("open ",""));
+            sythesizer.SpeakAsync("openning " + e.Result.Text.Replace("open ", ""));
 
             foreach (String line in File.ReadAllLines(Bro.logfile))
             {
                 try
                 {
                     string[] line_call = line.Split(",");
-                    for (int i = 4; i< line_call.Length; i++) {
-                        if (("open " + line_call[i].ToLower()) == e.Result.Text.ToLower())
-                        {
-                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = line_call[1], UseShellExecute = true });
-                            runtime = 0;
-                            break;
-                        }
+                    if (("open " + line_call[4].ToLower()).Equals(e.Result.Text.ToLower()))
+                    {
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = line_call[1], UseShellExecute = true });
+                        runtime = 0;
+                        break;
                     }
+
                 }
                 catch (Exception)
                 {
                     continue;
                 }
             }
-
         }
 
         static Task HandleTimer()
@@ -119,6 +128,7 @@ namespace Bro
             //sythesizer.Dispose();
             return Task.CompletedTask;
         }
+
     }
 
 }

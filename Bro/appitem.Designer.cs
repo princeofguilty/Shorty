@@ -29,7 +29,6 @@ namespace Bro
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appitem));
             this.panelitem = new System.Windows.Forms.Panel();
             this.shortcutLbl = new System.Windows.Forms.Label();
             this.openBtn = new System.Windows.Forms.Button();
@@ -43,7 +42,7 @@ namespace Bro
             // panelitem
             // 
             this.panelitem.BackColor = System.Drawing.Color.Transparent;
-            this.panelitem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelitem.BackgroundImage")));
+            this.panelitem.BackgroundImage = global::Bro.Properties.Resources.appitem_default;
             this.panelitem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelitem.Controls.Add(this.shortcutLbl);
             this.panelitem.Controls.Add(this.openBtn);
@@ -116,7 +115,7 @@ namespace Bro
             // itemIcon
             // 
             this.itemIcon.BackColor = System.Drawing.Color.Transparent;
-            this.itemIcon.Location = new System.Drawing.Point(30, 10);
+            this.itemIcon.Location = new System.Drawing.Point(13, 11);
             this.itemIcon.Name = "itemIcon";
             this.itemIcon.Size = new System.Drawing.Size(32, 32);
             this.itemIcon.TabIndex = 0;

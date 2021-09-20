@@ -26,13 +26,13 @@ namespace Bro
 
         public string appshortcut
         {
-            get {return _appshortCut; }
+            get { return _appshortCut; }
             set { _appshortCut = value; shortcutLbl.Text = value; }
         }
         public string appctrlKey
         {
             get { return _appctrlKey; }
-            set { _appctrlKey = value;}
+            set { _appctrlKey = value; }
         }
         public string appcodeKey
         {
@@ -44,9 +44,9 @@ namespace Bro
         public string appName
         {
             get { return _appName; }
-            set { _appName = value; itemLabel.Text = value.Substring(0,value.Length); }
+            set { _appName = value; itemLabel.Text = value.Substring(0, value.Length); }
         }
-        
+
         [Category("Custom props")]
         public Image appIcon
         {
@@ -67,7 +67,7 @@ namespace Bro
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @applocation, UseShellExecute = true });
         }
 
-        
+
         private void remBtn_Click(object sender, EventArgs e)
         {
             string fileName = Bro.logfile;

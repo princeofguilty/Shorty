@@ -49,7 +49,7 @@ namespace Bro
             // 
             this.mainbar.AllowDrop = true;
             this.mainbar.BackgroundImage = global::Bro.Properties.Resources.mainpanel_default;
-            this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.mainbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainbar.Controls.Add(this.dragdrop_panel);
             this.mainbar.Controls.Add(this.closeBtn);
             this.mainbar.Controls.Add(this.additionBtn);
@@ -81,6 +81,7 @@ namespace Bro
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(8, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 15);
@@ -152,10 +153,11 @@ namespace Bro
             // 
             // inputTxt
             // 
-            this.inputTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(212)))));
+            this.inputTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.inputTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputTxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.inputTxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.inputTxt.ForeColor = System.Drawing.Color.White;
             this.inputTxt.Location = new System.Drawing.Point(75, 17);
             this.inputTxt.MaxLength = 25;
             this.inputTxt.Name = "inputTxt";
@@ -173,10 +175,9 @@ namespace Bro
             this.logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.logo.Location = new System.Drawing.Point(0, 0);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(60, 55);
+            this.logo.Size = new System.Drawing.Size(57, 55);
             this.logo.TabIndex = 9;
             this.logo.Click += new System.EventHandler(this.logo_Click);
-            this.logo.Paint += new System.Windows.Forms.PaintEventHandler(this.logo_Paint);
             // 
             // _flowLayoutPanel
             // 

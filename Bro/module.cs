@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Speech.Recognition;
 
 
 namespace Bro
@@ -43,9 +42,9 @@ namespace Bro
 
         public static void Start()
         {
-                _hookID = SetHook(_proc);
-                Application.Run();
-                UnhookWindowsHookEx(_hookID);
+            _hookID = SetHook(_proc);
+            Application.Run();
+            UnhookWindowsHookEx(_hookID);
         }
 
         private static IntPtr SetHook(LowLevelKeyboardProc proc)
@@ -61,16 +60,18 @@ namespace Bro
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+
             if (Bro.flag == true)
                 foreach (var line in File.ReadAllLines(Bro.logfile))
                 {
                     string[] info = line.Split(",");
-                    if (info[2] == "3")
+                    if (info[2].Equals("3"))
                         if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_MENU) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
                         {
                             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
+
                         }
-                    if (info[2] == "6")
+                    if (info[2].Equals("6"))
                         if ((GetAsyncKeyState(VK_CONTROL) != 0) & (GetAsyncKeyState(VK_SHIFT) != 0) & GetAsyncKeyState(char.Parse(info[3])) != 0)
                         {
                             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @info[1], UseShellExecute = true });
