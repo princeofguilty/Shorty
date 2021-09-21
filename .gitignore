@@ -2,7 +2,15 @@
 
 Bro/obj/*/*/*.*
 !Bro/obj/*/*/*.exe
+!Bro/obj/*/*/*.dll
 
 Bro/bin/*/*/*.*
 !Bro/bin/*/*/*.exe
+!Bro/bin/*/*/*.dll
 
+.vs/Bro/DesignTimeBuild/.dtbcache.v2
+.vs/Bro/v16/.suo
+Bro/obj/Release/net5.0-windows/Bro.csproj.AssemblyReference.cache
+
+
+**/*cache*
