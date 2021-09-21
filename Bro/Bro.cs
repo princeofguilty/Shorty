@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +25,14 @@ namespace Bro
         private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro";
         internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\LogData.txt";
         private System.Windows.Forms.Timer timer1;
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         public Bro()
         {
@@ -286,5 +294,21 @@ namespace Bro
             }
         }
 
+        private void Bro_MouseMove(object sender, MouseEventArgs e)
+        {
+            //if (e.Button == MouseButtons.Left)
+            //{
+            //    this.Location = new Point(Cursor.Position.X + e.X, Cursor.Position.Y + e.Y);
+            //}
+        }
+
+        private void mainbar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

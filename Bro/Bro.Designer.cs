@@ -62,6 +62,7 @@ namespace Bro
             this.mainbar.Name = "mainbar";
             this.mainbar.Size = new System.Drawing.Size(450, 55);
             this.mainbar.TabIndex = 7;
+            this.mainbar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainbar_MouseMove);
             // 
             // dragdrop_panel
             // 
@@ -213,6 +214,7 @@ namespace Bro
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.AliceBlue;
             this.Load += new System.EventHandler(this.Bro_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bro_MouseMove);
             this.Resize += new System.EventHandler(this.Bro_Resize);
             this.mainbar.ResumeLayout(false);
             this.mainbar.PerformLayout();

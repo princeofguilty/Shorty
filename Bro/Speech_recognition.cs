@@ -73,7 +73,6 @@ namespace Bro
             if (e.Result.Text.Equals("silence"))
             {
                 sythesizer.Volume = 0;
-                MessageBox.Show(sythesizer.Volume.ToString());
             }
 
 
