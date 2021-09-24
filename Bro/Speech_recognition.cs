@@ -5,13 +5,11 @@ using System.Speech.Synthesis;
 using System.IO;
 using System.Threading;
 using System.Media;
-using System.Windows.Forms;
 
 namespace Bro
 {
-    public delegate void kako(string t);
 
-    static class Speech_recognition
+    class Speech_recognition
     {
         internal static CancellationTokenSource _tokensource = null;
         private static SpeechRecognitionEngine engine;
@@ -20,14 +18,13 @@ namespace Bro
         private static int runtime = 0;
         private static SpeechSynthesizer sythesizer;
         private static SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.yes);
-
+        
         public static void init()
         {
             SLES.Add("hey bro");
             SLES.Add("bro");
             SLES.Add("deactivate shortcuts");
             SLES.Add("activate shortcuts");
-            SLES.Add("silence");
 
             foreach (String line in File.ReadAllLines(Bro.logfile))
             {
@@ -53,6 +50,7 @@ namespace Bro
             engine.SpeechRecognized += rec;
         }
 
+
         internal static void rec(object sender, SpeechRecognizedEventArgs e)
         {
 
@@ -68,11 +66,6 @@ namespace Bro
             {
                 sythesizer.SpeakAsync(e.Result.Text);
                 Bro.flag_speech = true;
-            }
-
-            if (e.Result.Text.Equals("silence"))
-            {
-                sythesizer.Volume = 0;
             }
 
 

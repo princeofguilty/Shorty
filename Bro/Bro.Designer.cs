@@ -159,13 +159,16 @@ namespace Bro
             this.inputTxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.inputTxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.inputTxt.ForeColor = System.Drawing.Color.White;
+            this.inputTxt.HideSelection = false;
             this.inputTxt.Location = new System.Drawing.Point(75, 17);
             this.inputTxt.MaxLength = 25;
             this.inputTxt.Name = "inputTxt";
             this.inputTxt.PlaceholderText = "What are you looking for ?";
+            this.inputTxt.ShortcutsEnabled = false;
             this.inputTxt.Size = new System.Drawing.Size(252, 22);
             this.inputTxt.TabIndex = 1;
             this.inputTxt.TextChanged += new System.EventHandler(this.inputTxt_TextChanged);
+            this.inputTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTxt_KeyPress);
             this.inputTxt.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.inputTxt_PreviewKeyDown);
             // 
             // logo
@@ -214,7 +217,6 @@ namespace Bro
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.AliceBlue;
             this.Load += new System.EventHandler(this.Bro_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bro_MouseMove);
             this.Resize += new System.EventHandler(this.Bro_Resize);
             this.mainbar.ResumeLayout(false);
             this.mainbar.PerformLayout();

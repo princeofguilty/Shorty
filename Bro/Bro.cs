@@ -8,13 +8,22 @@ using System.Windows.Forms;
 
 namespace Bro
 {
-
-
     public partial class Bro : Form
     {
-        CancellationTokenSource _tokensource = null;
-        Thread t = new Thread(module.Start);
-        //Thread k = new Thread(Bro_key);
+        #region Draggable_Form
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        #endregion
+
+
+        #region Variables
+        private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro";
+        internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\LogData.txt";
+        internal static string appinfo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\AppInfo.txt";
 
         internal static bool flag = false;
         internal static bool flag_speech;
@@ -22,17 +31,12 @@ namespace Bro
         internal uc_Edit ucedit = new uc_Edit();
         private string[] dragedfile;
 
-        private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro";
-        internal static string logfile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\LogData.txt";
         private System.Windows.Forms.Timer timer1;
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
+        CancellationTokenSource _tokensource = null;
+        Thread t = new Thread(module.Start);
+        #endregion
 
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
 
         public Bro()
         {
@@ -41,17 +45,31 @@ namespace Bro
 
         private void Bro_Load(object sender, EventArgs e)
         {
-            KeyPreview = true;
+            using (System.Speech.Synthesis.SpeechSynthesizer sythesizer = new System.Speech.Synthesis.SpeechSynthesizer())
+            {
+                sythesizer.Speak("Its Me, Bro!");
+                sythesizer.Dispose();
+            }
 
             if (!Directory.Exists(subdir))
             {
                 Directory.CreateDirectory(subdir);
-                using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
             }
 
             if (!File.Exists(logfile))
             {
                 using (StreamWriter sw = File.CreateText(logfile)) { sw.Dispose(); }
+            }
+
+            if (!File.Exists(Bro.appinfo))
+            {
+                using (StreamWriter sw = File.CreateText(Bro.appinfo))
+                {
+                    sw.Dispose();
+                }
+                File.AppendAllText(Bro.appinfo, "ProductName: " + Application.ProductName + Environment.NewLine);
+                File.AppendAllText(Bro.appinfo, "ProductVersion: " + Application.ProductVersion + Environment.NewLine);
+                File.AppendAllText(Bro.appinfo, "UserAppDataRegistry: " + Application.UserAppDataRegistry + Environment.NewLine);
             }
 
             t.Priority = ThreadPriority.Lowest;
@@ -268,13 +286,15 @@ namespace Bro
         }
 
 
-        public void InitTimer()
+        internal void InitTimer()
         {
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(logo_Click);
             timer1.Interval = 700; // in miliseconds
             timer1.Start();
         }
+
+
 
         public void logo_Click(object sender, EventArgs e)
         {
@@ -291,15 +311,8 @@ namespace Bro
                 }
                 flag = !flag;
                 flag_speech = false;
-            }
-        }
 
-        private void Bro_MouseMove(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Left)
-            //{
-            //    this.Location = new Point(Cursor.Position.X + e.X, Cursor.Position.Y + e.Y);
-            //}
+            }
         }
 
         private void mainbar_MouseMove(object sender, MouseEventArgs e)
@@ -309,6 +322,15 @@ namespace Bro
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void inputTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           //if(e.KeyChar == (char)8)
+           //{
+           //    inputTxt.Text = inputTxt.Text.Substring(inputTxt.SelectionStart);
+           //}
+
         }
     }
 }

@@ -13,5 +13,8 @@
     <Compile Update="uc_Edit.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Validation.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

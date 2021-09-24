@@ -4,17 +4,30 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace Bro
 {
     public partial class uc_Edit : UserControl
     {
+
+
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
+        private static readonly string StartupKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
+        private static readonly string StartupValue = "Bro1110";
+
+        private string[] lines;
         public uc_Edit()
         {
             InitializeComponent();
         }
-
-        private string[] lines;
+        private void uc_Edit_Load(object sender, EventArgs e)
+        {
+            if (key.GetValue("Bro1110") != null)
+            {
+                Startup_Check.Checked = true;
+            }
+        }
 
         private string _nameBox;
         private string _lockBox;
@@ -65,16 +78,36 @@ namespace Bro
         internal void comboboxitem_Rem()
         {
             keyCbox.SelectedIndex = -1;
+            controlCobox.SelectedIndex = -1;
+
+            //keyCbox.Items.Clear();
+            //keyCbox.Items.AddRange(new string[]
+            //{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"});
+            //
+            //foreach (var line in lines)
+            //{
+            //    string[] info = line.Split(",");
+            //    if (keyCbox.Items.Contains(info[3]))
+            //    {
+            //        keyCbox.Items.Remove(info[3]);
+            //    }
+            //}
+        }
+        private void controlCobox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lines = File.ReadAllLines(Bro.logfile);
             keyCbox.Items.Clear();
             keyCbox.Items.AddRange(new string[]
             {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"});
 
-            lines = File.ReadAllLines(Bro.logfile);
-
             foreach (var line in lines)
             {
                 string[] info = line.Split(",");
-                if (keyCbox.Items.Contains(info[3]))
+                if (controlCobox.SelectedItem.Equals("ALT") && keyCbox.Items.Contains(info[3]) && info[2] == "3")
+                {
+                    keyCbox.Items.Remove(info[3]);
+                }
+                else if (controlCobox.SelectedItem.Equals("SHIFT") && keyCbox.Items.Contains(info[3]) && info[2] == "6")
                 {
                     keyCbox.Items.Remove(info[3]);
                 }
@@ -135,5 +168,18 @@ namespace Bro
             _appcallname = "";
             this.Parent.Controls.Clear();
         }
+
+        private void Startup_Check_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (Startup_Check.Checked)
+            {
+                key.SetValue(StartupValue, Application.ExecutablePath.ToString());
+            }
+            else if (!Startup_Check.Checked)
+            {
+                key.DeleteValue("Bro1110");
+            }
+        }
+
     }
 }

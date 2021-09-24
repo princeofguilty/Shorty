@@ -30,6 +30,7 @@ namespace Bro
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Startup_Check = new System.Windows.Forms.CheckBox();
             this.callbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ctrl_label = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@ namespace Bro
             // 
             this.panel1.BackgroundImage = global::Bro.Properties.Resources.addpanel_default;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.Startup_Check);
             this.panel1.Controls.Add(this.callbox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ctrl_label);
@@ -70,6 +72,19 @@ namespace Bro
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 218);
             this.panel1.TabIndex = 0;
+            // 
+            // Startup_Check
+            // 
+            this.Startup_Check.AutoSize = true;
+            this.Startup_Check.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Startup_Check.ForeColor = System.Drawing.Color.White;
+            this.Startup_Check.Location = new System.Drawing.Point(320, 181);
+            this.Startup_Check.Name = "Startup_Check";
+            this.Startup_Check.Size = new System.Drawing.Size(125, 19);
+            this.Startup_Check.TabIndex = 7;
+            this.Startup_Check.Text = "Run Bro on startup";
+            this.Startup_Check.UseVisualStyleBackColor = true;
+            this.Startup_Check.CheckStateChanged += new System.EventHandler(this.Startup_Check_CheckStateChanged);
             // 
             // callbox
             // 
@@ -140,6 +155,8 @@ namespace Bro
             // keyCbox
             // 
             this.keyCbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
+            this.keyCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.keyCbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.keyCbox.ForeColor = System.Drawing.Color.White;
             this.keyCbox.FormattingEnabled = true;
             this.keyCbox.Items.AddRange(new object[] {
@@ -177,6 +194,8 @@ namespace Bro
             // controlCobox
             // 
             this.controlCobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
+            this.controlCobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.controlCobox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.controlCobox.ForeColor = System.Drawing.Color.White;
             this.controlCobox.FormattingEnabled = true;
             this.controlCobox.Items.AddRange(new object[] {
@@ -186,12 +205,13 @@ namespace Bro
             this.controlCobox.Name = "controlCobox";
             this.controlCobox.Size = new System.Drawing.Size(62, 23);
             this.controlCobox.TabIndex = 3;
+            this.controlCobox.SelectionChangeCommitted += new System.EventHandler(this.controlCobox_SelectionChangeCommitted);
             // 
             // iconBox
             // 
             this.iconBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.iconBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.iconBox.Location = new System.Drawing.Point(355, 29);
+            this.iconBox.Location = new System.Drawing.Point(361, 29);
             this.iconBox.Margin = new System.Windows.Forms.Padding(0);
             this.iconBox.Name = "iconBox";
             this.iconBox.Size = new System.Drawing.Size(32, 32);
@@ -264,6 +284,7 @@ namespace Bro
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_Edit";
             this.Size = new System.Drawing.Size(450, 218);
+            this.Load += new System.EventHandler(this.uc_Edit_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBox)).EndInit();
@@ -287,5 +308,6 @@ namespace Bro
         private System.Windows.Forms.Label ctrl_label;
         private System.Windows.Forms.TextBox callbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox Startup_Check;
     }
 }

@@ -60,6 +60,7 @@ namespace Bro
             // 
             this.shortcutLbl.AutoSize = true;
             this.shortcutLbl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.shortcutLbl.ForeColor = System.Drawing.Color.White;
             this.shortcutLbl.Location = new System.Drawing.Point(209, 21);
             this.shortcutLbl.Name = "shortcutLbl";
             this.shortcutLbl.Size = new System.Drawing.Size(78, 13);
@@ -76,6 +77,7 @@ namespace Bro
             this.openBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.openBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.openBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openBtn.ForeColor = System.Drawing.Color.White;
             this.openBtn.Location = new System.Drawing.Point(306, 15);
             this.openBtn.Name = "openBtn";
             this.openBtn.Size = new System.Drawing.Size(75, 25);
@@ -106,6 +108,7 @@ namespace Bro
             this.itemLabel.AutoSize = true;
             this.itemLabel.BackColor = System.Drawing.Color.Transparent;
             this.itemLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.itemLabel.ForeColor = System.Drawing.Color.White;
             this.itemLabel.Location = new System.Drawing.Point(80, 15);
             this.itemLabel.Name = "itemLabel";
             this.itemLabel.Size = new System.Drawing.Size(80, 21);
