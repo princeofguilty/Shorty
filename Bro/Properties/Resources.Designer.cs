@@ -143,6 +143,26 @@ namespace Bro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap microfonGfx_defualt {
+            get {
+                object obj = ResourceManager.GetObject("microfonGfx_defualt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap microfonoff_default {
+            get {
+                object obj = ResourceManager.GetObject("microfonoff_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimizebtn_default {
             get {
                 object obj = ResourceManager.GetObject("minimizebtn_default", resourceCulture);
@@ -153,9 +173,29 @@ namespace Bro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nosoundgfx_default {
+            get {
+                object obj = ResourceManager.GetObject("nosoundgfx_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap openbtn_default {
             get {
                 object obj = ResourceManager.GetObject("openbtn_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sounfgfx_defualt {
+            get {
+                object obj = ResourceManager.GetObject("sounfgfx_defualt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -5,14 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Runtime;
 
 namespace Bro
 {
     public partial class uc_Edit : UserControl
     {
-
-
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
+        internal protected RegistryKey key = Registry.CurrentUser.OpenSubKey(StartupKey, true);
         private static readonly string StartupKey = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         private static readonly string StartupValue = "Bro1110";
 
@@ -27,6 +26,10 @@ namespace Bro
             {
                 Startup_Check.Checked = true;
             }
+            if (Bro.logkey.GetValue("scutssitt").Equals("True"))
+            {
+                scutsOn_box.Checked = true;
+            }
         }
 
         private string _nameBox;
@@ -34,7 +37,7 @@ namespace Bro
         private Image _iconPanel;
         private string _appctrlKey;
         private string _appcodeKey;
-        public string _appcallname;
+        //public string _appcallname;
 
         public string appctrlKey
         {
@@ -117,7 +120,7 @@ namespace Bro
         private void addBtn_Click(object sender, EventArgs e)
         {
 
-            if (controlCobox.SelectedIndex == -1 || keyCbox.SelectedIndex == -1 || locBox.TextLength == 0)
+            if (controlCobox.SelectedIndex == -1 || keyCbox.SelectedIndex == -1)
             {
                 MessageBox.Show("don't leave anything empty");
                 return;
@@ -137,12 +140,26 @@ namespace Bro
 
                 appcodeKey = keyCbox.SelectedItem.ToString();
 
-                string CallName = callbox.Text.ToString();
-                CallName = CallName.TrimStart();
-                CallName = CallName.TrimEnd();
-                CallName = CallName.ToLower();
+                //string CallName = callbox.Text.ToString();
+                //CallName = CallName.TrimStart();
+                //CallName = CallName.TrimEnd();
+                //CallName = CallName.ToLower();
 
-                string lineLog = appName.ToLower() + "," + appLoaction + "," + appctrlKey + "," + appcodeKey.ToUpper() + "," + CallName;
+                appName = nameBox.Text.ToLower();
+                if (appLoaction == null)
+                {
+                    if (!appName.Contains(Uri.SchemeDelimiter))
+                    {
+                        appName = string.Concat(Uri.UriSchemeHttp, Uri.SchemeDelimiter, appName);
+                    }
+                    appLoaction = appName;
+                    MessageBox.Show(appLoaction);
+                    Uri uri = new Uri(appName);
+                    appName = uri.Host;
+                    appName = appName.Replace("www.", string.Empty);
+                }
+
+                string lineLog = appName.ToLower() + "," + appLoaction + "," + appctrlKey + "," + appcodeKey.ToUpper();// + "," + CallName;
 
                 if (Array.Find(lines, s => s.Split(",").ElementAt(0).Equals(appName.ToLower())) != null)
                 {
@@ -156,16 +173,16 @@ namespace Bro
 
             appName = "";
             appLoaction = "";
-            _appcallname = "";
+            //_appcallname = "";
             iconBox.Image = null;
-            Speech_recognition.init();
+            //Speech_recognition.init();
             this.Parent.Controls.Clear();
         }
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             appName = "";
             appLoaction = "";
-            _appcallname = "";
+            //_appcallname = "";
             this.Parent.Controls.Clear();
         }
 
@@ -181,5 +198,16 @@ namespace Bro
             }
         }
 
+        private void scutsOn_box_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (scutsOn_box.Checked)
+            {
+                Bro.scutOn.SetValue("scutssitt", true);
+            }
+            else if (!scutsOn_box.Checked)
+            {
+                Bro.scutOn.SetValue("scutssitt", false);
+            }
+        }
     }
 }

@@ -61,7 +61,7 @@ namespace Bro
             this.shortcutLbl.AutoSize = true;
             this.shortcutLbl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.shortcutLbl.ForeColor = System.Drawing.Color.White;
-            this.shortcutLbl.Location = new System.Drawing.Point(209, 21);
+            this.shortcutLbl.Location = new System.Drawing.Point(220, 21);
             this.shortcutLbl.Name = "shortcutLbl";
             this.shortcutLbl.Size = new System.Drawing.Size(78, 13);
             this.shortcutLbl.TabIndex = 4;
@@ -78,7 +78,7 @@ namespace Bro
             this.openBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.openBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openBtn.ForeColor = System.Drawing.Color.White;
-            this.openBtn.Location = new System.Drawing.Point(306, 15);
+            this.openBtn.Location = new System.Drawing.Point(317, 15);
             this.openBtn.Name = "openBtn";
             this.openBtn.Size = new System.Drawing.Size(75, 25);
             this.openBtn.TabIndex = 3;
@@ -96,7 +96,7 @@ namespace Bro
             this.remBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.remBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.remBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.remBtn.Location = new System.Drawing.Point(395, 16);
+            this.remBtn.Location = new System.Drawing.Point(406, 16);
             this.remBtn.Name = "remBtn";
             this.remBtn.Size = new System.Drawing.Size(26, 23);
             this.remBtn.TabIndex = 2;

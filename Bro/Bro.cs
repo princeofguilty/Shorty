@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -11,6 +12,7 @@ namespace Bro
     public partial class Bro : Form
     {
         #region Draggable_Form
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -19,6 +21,8 @@ namespace Bro
         public const int HT_CAPTION = 0x2;
         #endregion
 
+        internal static protected RegistryKey logkey= Registry.CurrentUser.CreateSubKey(@"SOFTWARE\BRO");
+        internal static RegistryKey scutOn = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\BRO");
 
         #region Variables
         private string subdir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro";
@@ -26,12 +30,13 @@ namespace Bro
         internal static string appinfo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Bro\AppInfo.txt";
 
         internal static bool flag = false;
-        internal static bool flag_speech;
+        internal protected static Panel logoz;
+        //internal static bool flag_speech;
 
         internal uc_Edit ucedit = new uc_Edit();
         private string[] dragedfile;
 
-        private System.Windows.Forms.Timer timer1;
+        //private System.Windows.Forms.Timer timer1;
 
         CancellationTokenSource _tokensource = null;
         Thread t = new Thread(module.Start);
@@ -43,13 +48,17 @@ namespace Bro
             InitializeComponent();
         }
 
+        
+
         private void Bro_Load(object sender, EventArgs e)
         {
-            using (System.Speech.Synthesis.SpeechSynthesizer sythesizer = new System.Speech.Synthesis.SpeechSynthesizer())
-            {
-                sythesizer.Speak("Its Me, Bro!");
-                sythesizer.Dispose();
-            }
+
+
+            //using (System.Speech.Synthesis.SpeechSynthesizer sythesizer = new System.Speech.Synthesis.SpeechSynthesizer())
+            //{
+            //    sythesizer.Speak("Its Me, Bro!");
+            //    sythesizer.Dispose();
+            //}
 
             if (!Directory.Exists(subdir))
             {
@@ -75,10 +84,22 @@ namespace Bro
             t.Priority = ThreadPriority.Lowest;
             t.Start();
 
-            Speech_recognition.init();
-            InitTimer();
+            //Speech_recognition.init();
+            //InitTimer();
+            if(scutOn.GetValue("scutssitt") == null)
+                scutOn.SetValue("scutssitt", false);
+            else if (scutOn.GetValue("scutssitt").Equals("True"))
+            {
+                flag = false;
+                logo_Click(null, EventArgs.Empty);
+            }
+            else if (logkey.GetValue("logging").Equals(true))
+            {
+                flag = false;
+                logo_Click(null, EventArgs.Empty);
+            }
+            logoz = logo;
         }
-
 
         //implement user control in form1 in _flowlayoutpanel control
         private void viewApps()
@@ -138,17 +159,21 @@ namespace Bro
                 {
                     Thread.Sleep(30);
                     _flowLayoutPanel.Controls.SetChildIndex(_flowLayoutPanel.Controls[_flowLayoutPanel.Controls.Count - 1], _flowLayoutPanel.Controls.IndexOf(GetNextControl(_flowLayoutPanel.Controls[_flowLayoutPanel.Controls.Count - 1], true)));
+                    inputTxt.Select(inputTxt.Text.Length, 0);
                 }
                 else if (e.KeyCode == Keys.Down)
                 {
                     Thread.Sleep(30);
                     _flowLayoutPanel.Controls.SetChildIndex(_flowLayoutPanel.Controls[0], _flowLayoutPanel.Controls.IndexOf(GetNextControl(_flowLayoutPanel.Controls[0], false)));
+                    inputTxt.Select(inputTxt.Text.Length, 0);
                 }
             }
             catch (Exception) { }
             finally
             {
-                inputTxt.Select(inputTxt.Text.Length, 0);
+                //inputTxt.Select(inputTxt.Text.Length, 0);
+                //inputTxt.SelectionStart = inputTxt.Text.Length;
+                //inputTxt.SelectionLength = 0;
             }
         }
 
@@ -201,6 +226,7 @@ namespace Bro
 
         private void close_Btn_Click(object sender, EventArgs e)
         {
+            logkey.Close();
             Application.Exit();
         }
 
@@ -246,8 +272,15 @@ namespace Bro
 
         private void dragdrop_panel_DragDrop(object sender, DragEventArgs e)
         {
+            try
+            {
+                ucedit.appName = Path.GetFileNameWithoutExtension(dragedfile[0]);
+            }
+            catch (Exception)
+            {
 
-            ucedit.appName = Path.GetFileNameWithoutExtension(dragedfile[0]);
+                return;
+            }
             ucedit.appLoaction = dragedfile[0];
             try
             {
@@ -286,21 +319,21 @@ namespace Bro
         }
 
 
-        internal void InitTimer()
-        {
-            timer1 = new System.Windows.Forms.Timer();
-            timer1.Tick += new EventHandler(logo_Click);
-            timer1.Interval = 700; // in miliseconds
-            timer1.Start();
-        }
+        //internal void InitTimer()
+        //{
+        //    timer1 = new System.Windows.Forms.Timer();
+        //    timer1.Tick += new EventHandler(logo_Click);
+        //    timer1.Interval = 700; // in miliseconds
+        //    timer1.Start();
+        //}
 
 
 
         public void logo_Click(object sender, EventArgs e)
         {
-            if (flag_speech || e != EventArgs.Empty)
-            {
-                //MessageBox.Show("flag speech = " + flag_speech.ToString() + " _/_ flag = " + flag.ToString() + "_/_ e = " + e);
+            //if (flag_speech || e != EventArgs.Empty)
+            //{
+            //MessageBox.Show("flag speech = " + flag_speech.ToString() + " _/_ flag = " + flag.ToString() + "_/_ e = " + e);
                 if (flag == true)
                 {
                     logo.BackgroundImage = Properties.Resources.logo_default;
@@ -310,9 +343,11 @@ namespace Bro
                     logo.BackgroundImage = Properties.Resources.logo_click_default;
                 }
                 flag = !flag;
-                flag_speech = false;
+            //flag_speech = false;
 
-            }
+            //}
+
+            logkey.SetValue("logging", flag);
         }
 
         private void mainbar_MouseMove(object sender, MouseEventArgs e)
@@ -322,15 +357,6 @@ namespace Bro
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void inputTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           //if(e.KeyChar == (char)8)
-           //{
-           //    inputTxt.Text = inputTxt.Text.Substring(inputTxt.SelectionStart);
-           //}
-
         }
     }
 }

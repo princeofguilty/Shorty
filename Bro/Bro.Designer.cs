@@ -168,7 +168,6 @@ namespace Bro
             this.inputTxt.Size = new System.Drawing.Size(252, 22);
             this.inputTxt.TabIndex = 1;
             this.inputTxt.TextChanged += new System.EventHandler(this.inputTxt_TextChanged);
-            this.inputTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTxt_KeyPress);
             this.inputTxt.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.inputTxt_PreviewKeyDown);
             // 
             // logo

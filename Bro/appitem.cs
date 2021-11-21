@@ -64,7 +64,14 @@ namespace Bro
 
         private void openBtn_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @applocation, UseShellExecute = true });
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = @applocation, UseShellExecute = true });
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("File is not found ..! Check the file path ?");
+            }
         }
 
 

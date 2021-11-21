@@ -30,6 +30,7 @@ namespace Bro
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.scutsOn_box = new System.Windows.Forms.CheckBox();
             this.Startup_Check = new System.Windows.Forms.CheckBox();
             this.callbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@ namespace Bro
             // 
             this.panel1.BackgroundImage = global::Bro.Properties.Resources.addpanel_default;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.scutsOn_box);
             this.panel1.Controls.Add(this.Startup_Check);
             this.panel1.Controls.Add(this.callbox);
             this.panel1.Controls.Add(this.label1);
@@ -72,6 +74,18 @@ namespace Bro
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 218);
             this.panel1.TabIndex = 0;
+            // 
+            // scutsOn_box
+            // 
+            this.scutsOn_box.AutoSize = true;
+            this.scutsOn_box.ForeColor = System.Drawing.Color.White;
+            this.scutsOn_box.Location = new System.Drawing.Point(320, 156);
+            this.scutsOn_box.Name = "scutsOn_box";
+            this.scutsOn_box.Size = new System.Drawing.Size(122, 19);
+            this.scutsOn_box.TabIndex = 1;
+            this.scutsOn_box.Text = "Keep Shortcuts on";
+            this.scutsOn_box.UseVisualStyleBackColor = true;
+            this.scutsOn_box.CheckStateChanged += new System.EventHandler(this.scutsOn_box_CheckStateChanged);
             // 
             // Startup_Check
             // 
@@ -128,7 +142,7 @@ namespace Bro
             this.cancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(239, 177);
+            this.cancelBtn.Location = new System.Drawing.Point(207, 177);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 1;
@@ -144,7 +158,7 @@ namespace Bro
             this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(137, 177);
+            this.addBtn.Location = new System.Drawing.Point(135, 178);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 1;
@@ -211,7 +225,7 @@ namespace Bro
             // 
             this.iconBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(154)))), ((int)(((byte)(182)))));
             this.iconBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.iconBox.Location = new System.Drawing.Point(361, 29);
+            this.iconBox.Location = new System.Drawing.Point(361, 32);
             this.iconBox.Margin = new System.Windows.Forms.Padding(0);
             this.iconBox.Name = "iconBox";
             this.iconBox.Size = new System.Drawing.Size(32, 32);
@@ -238,7 +252,6 @@ namespace Bro
             this.nameBox.Location = new System.Drawing.Point(112, 29);
             this.nameBox.MaxLength = 25;
             this.nameBox.Name = "nameBox";
-            this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(194, 25);
             this.nameBox.TabIndex = 1;
             // 
@@ -309,5 +322,6 @@ namespace Bro
         private System.Windows.Forms.TextBox callbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox Startup_Check;
+        private System.Windows.Forms.CheckBox scutsOn_box;
     }
 }

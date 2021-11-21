@@ -43,8 +43,15 @@ namespace Bro
             sythesizer = new SpeechSynthesizer();
 
             Grammar gr = new Grammar(new GrammarBuilder(SLES));
+            try
+            {
             engine = new SpeechRecognitionEngine();
             engine.SetInputToDefaultAudioDevice();
+            }
+            catch (Exception)
+            {
+                
+            }
             engine.LoadGrammar(gr);
             engine.RecognizeAsync(RecognizeMode.Multiple);
             engine.SpeechRecognized += rec;
@@ -53,19 +60,18 @@ namespace Bro
 
         internal static void rec(object sender, SpeechRecognizedEventArgs e)
         {
-
             //if (e.Result.Confidence < 0.4)
             //  return;
 
             if (e.Result.Text.Equals("deactivate shortcuts"))
             {
                 sythesizer.SpeakAsync(e.Result.Text);
-                Bro.flag_speech = true;
+                //Bro.flag_speech = true;
             }
             else if (e.Result.Text.Equals("activate shortcuts"))
             {
                 sythesizer.SpeakAsync(e.Result.Text);
-                Bro.flag_speech = true;
+                //Bro.flag_speech = true;
             }
 
 
